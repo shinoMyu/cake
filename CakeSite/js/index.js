@@ -471,3 +471,75 @@ document.querySelector(".arrow.right").addEventListener("click", function (event
 });
 document.getElementById("lightbox").onclick = closeLightbox;
 document.querySelector(".close-btn").onclick = closeLightbox;
+
+
+function renderCakes(data) {  
+    data.forEach(cake => {
+        const card = document.createElement("div");
+        card.className = `product-item ${cake.category}`;
+      
+        const img = document.createElement("img");
+        img.src = cake.image;
+        img.alt = cake.name.en;
+        img.className = "product-img";
+        card.appendChild(img);
+    
+        // 渲染多語言的 <h3>
+        langs.forEach(lang => {
+            const h3 = document.createElement("h3");
+            h3.className = lang;
+            h3.style.display = "none";
+            h3.textContent = cake.name[lang];
+            card.appendChild(h3);
+      });
+
+        // 渲染多語言的 <p>（flavor）
+        langs.forEach(lang => {
+            const p = document.createElement("p");
+            p.className = lang;
+            p.style.display = "none";
+            p.innerHTML = cake.flavor[lang];  
+            card.appendChild(p);
+      });
+  
+        // 渲染多語言的 <p class="description">
+        langs.forEach(lang => {
+            if (cake.description && cake.description[lang]) {
+                const p = document.createElement("p");
+                p.className = `description ${lang}`;
+                p.style.display = "none";
+                p.textContent = cake.description[lang];
+                card.appendChild(p);
+            }
+      });
+
+        // 渲染多語言的 <p>（size）
+        langs.forEach(lang => {
+            if (cake.size && cake.size[lang]) {
+                const p = document.createElement("p");
+                p.className = lang;
+                p.style.display = "none";
+                p.innerHTML = cake.size[lang];
+                card.appendChild(p);
+            }
+    });  
+
+        // 渲染多語言的 <p>（Style）
+        langs.forEach(lang => {
+            if (cake.Style && cake.Style[lang]) {
+                const p = document.createElement("p");
+                p.className = lang;
+                p.style.display = "none";
+                p.innerHTML = cake.Style[lang];
+                card.appendChild(p);
+            }
+    });  
+      container.appendChild(card);      
+    });
+    // 最後依照 localStorage 的語言顯示一次
+    showLanguage(localStorage.getItem("selectedLang") || "en");    
+}
+  
+renderCakes(cakeData); // 呼叫渲染
+showLanguage(localStorage.getItem("selectedLang") || "en");
+
