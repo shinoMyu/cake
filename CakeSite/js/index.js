@@ -474,6 +474,8 @@ document.querySelector(".close-btn").onclick = closeLightbox;
 
 
 function renderCakes(data) {  
+    const container = document.getElementById("cakeContainer");
+
     data.forEach(cake => {
         const card = document.createElement("div");
         card.className = `product-item ${cake.category}`;
@@ -495,11 +497,13 @@ function renderCakes(data) {
 
         // 渲染多語言的 <p>（flavor）
         langs.forEach(lang => {
-            const p = document.createElement("p");
-            p.className = lang;
-            p.style.display = "none";
-            p.innerHTML = cake.flavor[lang];  
-            card.appendChild(p);
+            if (cake.flavor && cake.flavor[lang]) {
+                const p = document.createElement("p");
+                p.className = lang;
+                p.style.display = "none";
+                p.innerHTML = cake.flavor[lang];  
+                card.appendChild(p);
+            }
       });
   
         // 渲染多語言的 <p class="description">
@@ -534,7 +538,7 @@ function renderCakes(data) {
                 card.appendChild(p);
             }
     });  
-      container.appendChild(card);      
+        container.appendChild(card);      
     });
     // 最後依照 localStorage 的語言顯示一次
     showLanguage(localStorage.getItem("selectedLang") || "en");    
