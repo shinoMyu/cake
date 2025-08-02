@@ -15,6 +15,20 @@ function signOut() {
     location.reload(); // // 重新載入頁面
 }
 
+// 小螢幕的登入/登出點擊處理
+function toggleAuthText(action) {
+    if (window.innerWidth <= 768) {
+        clickCount++;
+        if (clickCount === 1) {
+            authBtn.classList.add("show-text");
+        } else {
+            action();
+        }
+    } else {
+        action();
+    }
+}
+
 // 根據登入狀態設定按鈕行為
 if (!isLoggedIn) {
     authText.textContent = "Sign in";
@@ -105,72 +119,58 @@ if (!isLoggedIn) {
     if (existing) existing.remove();
 }
 
-// 小螢幕的登入/登出點擊處理
-function toggleAuthText(action) {
-    if (window.innerWidth <= 768) {
-        clickCount++;
-        if (clickCount === 1) {
-            authBtn.classList.add("show-text");
-        } else {
-            action();
-        }
+// 選單 - 小螢幕 menu 切換
+const menuToggle = document.getElementById("menu-toggle");
+const menuOverlay = document.getElementById("menu-overlay");
+let isMenuOpen = false;
+
+menuToggle.onclick = function () {
+    isMenuOpen = !isMenuOpen;
+    menuToggle.src = isMenuOpen ? "image/close.png" : "image/menu.png";
+    if (isMenuOpen) {
+        menuOverlay.classList.remove("hidden");
     } else {
-        action();
+        menuOverlay.classList.add("hidden");
     }
-}
-// 點擊其他地方時隱藏文字提示與重設點擊次數
-document.addEventListener("click", function () {
-    authBtn.classList.remove("show-text");
-    clickCount = 0;
-});
+};
 
-
-// 商品分類篩選函式
-function filterProducts(type) {
-    const items = document.querySelectorAll('.product-item');
-    for (let i = 0; i < items.length; i++) {
-        const item = items[i];
-        if (type === 'all') {
-            item.style.display = 'block';
-        } else {
-            item.style.display = item.classList.contains(type) ? 'block' : 'none';
-        }
-    }
-}
-
-function highlightCategory(type) {
-    const allButtons = document.querySelectorAll('.category-filter button');
-    for (let i = 0; i < allButtons.length; i++) {
-        allButtons[i].classList.remove('active');
-        if (allButtons[i].getAttribute('data-type') === type) {
-            allButtons[i].classList.add('active');
-        }
-    }
-}
-
-// 掛載分類按鈕事件
-const categoryBtns = document.querySelectorAll('.category-filter button');
-for (let i = 0; i < categoryBtns.length; i++) {
-    categoryBtns[i].addEventListener('click', function () {
-        const type = this.getAttribute('data-type');
-        filterProducts(type);
-        highlightCategory(type);
+// 點選選單項目後自動關閉
+const menuLinks = menuOverlay.querySelectorAll("a");
+for (let i = 0; i < menuLinks.length; i++) {
+    menuLinks[i].addEventListener("click", function () {
+        menuOverlay.classList.add("hidden");
+        menuToggle.src = "image/menu.png";
+        isMenuOpen = false;
     });
 }
 
-
-// 語言切換處理
-// 切換語言選單的開關
-function toggleLangMenu() {  
-    const menu = document.getElementById('langOptions');
-    menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
+const langToggle = document.querySelector(".lang-toggle");
+const langOptions = document.getElementById("langOptions");
+const themeToggle = document.querySelector(".theme-toggle");
+const themeOptions = document.getElementById("themeOptions");
+// 切換選單顯示
+function toggleMenu(menuId) {
+    const menu = document.getElementById(menuId);
+    menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
 }
 
-// 切換按鈕事件
-const langToggle = document.querySelector(".lang-toggle");
-langToggle.addEventListener("click", function () {
-    toggleLangMenu();
-});
+// 處理選擇並執行動作（如更新主題顏色或語言）
+function handleSelection(type, selectedValue) {
+    if (type === 'theme') {
+    // 主題切換
+    document.body.classList.remove("theme-blue");
+    if (selectedValue === "blue") {
+        document.body.classList.add("theme-blue");
+    }
+    localStorage.setItem("selectedTheme", selectedValue);
+    } else if (type === 'lang') {
+    // 語言切換
+    showLanguage(selectedValue);
+    localStorage.setItem("selectedLang", selectedValue);
+    }
+    // 隱藏選單
+    document.getElementById(type + "Options").style.display = "none";
+}
 
 // 語言切換函式
 let langs = ['en', 'traditional', 'jp'];
@@ -189,7 +189,7 @@ function showLanguage(lang) {
     const buttons = document.querySelectorAll('#langOptions button');
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].classList.remove('active');
-    }
+    }    // buttons.forEach(button => button.classList.remove('active'));
     const activeBtn = document.querySelector('.btn-' + lang);
     if (activeBtn) activeBtn.classList.add('active');
     // 收起語言選單
@@ -209,12 +209,49 @@ function showLanguage(lang) {
         // 如果完全沒有 active，預設回到 All
         highlightCategory('all');
     }
-
 }
-// 執行初始語言設定
-showLanguage(selectedLang);
 
-// 四個語言按鈕點擊事件
+// 初始化（設定語言和主題）
+function init() {
+    const savedTheme = localStorage.getItem("selectedTheme") || "orange";
+    if (savedTheme === "blue") {
+        document.body.classList.add("theme-blue");
+        document.querySelector('[data-theme="blue"]').classList.add('active');
+    } else {
+        document.querySelector('[data-theme="default"]').classList.add('active');
+    }
+    const savedLang = localStorage.getItem("selectedLang") || "en";
+    showLanguage(savedLang);
+}
+
+// 語言切換
+langToggle.addEventListener("click", () => toggleMenu("langOptions"));
+const langButtons = document.querySelectorAll("#langOptions button");
+langButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        const selectedLang = button.getAttribute("data-lang");
+        handleSelection("lang", selectedLang);
+    });
+});
+
+// 主題切換
+themeToggle.addEventListener("click", () => toggleMenu("themeOptions"));
+const themeButtons = document.querySelectorAll("#themeOptions button");
+themeButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        const selectedTheme = button.getAttribute("data-theme");
+        handleSelection("theme", selectedTheme);
+        // 移除其他按鈕的 active 類
+        themeButtons.forEach(btn => btn.classList.remove('active'));
+        // 高亮當前選中的按鈕
+        button.classList.add("active");        
+    });
+});
+
+// 頁面初始化時執行
+init();
+
+// 三個語言按鈕點擊事件
 function createLangHandler(lang) {
     return function () {
         showLanguage(lang);
@@ -228,41 +265,6 @@ for (let i = 0; i < langs.length; i++) {
     }
 }
 
-// 選單 - 小螢幕 menu 切換
-const menuToggle = document.getElementById("menu-toggle");
-const menuOverlay = document.getElementById("menu-overlay");
-let isMenuOpen = false;
-
-menuToggle.onclick = function () {
-    isMenuOpen = !isMenuOpen;
-
-    menuToggle.src = isMenuOpen ? "image/close.png" : "image/menu.png";
-    if (isMenuOpen) {
-        menuOverlay.classList.remove("hidden");
-    } else {
-        menuOverlay.classList.add("hidden");
-    }
-};
-
-// 點選選單項目後自動關閉
-const menuLinks = menuOverlay.querySelectorAll("a");
-for (let i = 0; i < menuLinks.length; i++) {
-    menuLinks[i].addEventListener("click", function () {
-        menuOverlay.classList.add("hidden");
-        menuToggle.src = "image/menu.png";
-        isMenuOpen = false;
-    });
-}
-// 點其他地方也會關閉
-document.addEventListener("click", function (e) {
-    if (isMenuOpen && !menuOverlay.contains(e.target) && !menuToggle.contains(e.target)) {
-        menuOverlay.classList.add("hidden");
-        menuToggle.src = "image/menu.png";
-        isMenuOpen = false;
-    }
-});
-
-
 // music 音樂控制區塊
 const music = document.getElementById('background-music');
 const musicIcon = document.getElementById('music-icon');
@@ -272,7 +274,7 @@ let isPlaying = false;
 musicBtn.addEventListener('click', function () {
     if (!isPlaying) {
         music.play();
-        musicIcon.src = 'image/music_note.png';
+        musicIcon.src = 'image/music.png';
         isPlaying = true;
     } else {
         music.pause();
@@ -409,72 +411,65 @@ video.onended = function () {
     }
 };
 
-// 點擊其他區域時隱藏音量滑桿
-document.addEventListener('click', function (event) {
-    // 點的不是靜音鍵或音量滑桿，就隱藏音量滑桿
-    if (!muteBtn.contains(event.target) && !volumeSlider.contains(event.target)) {
-        volumeControl.style.display = 'none';
+function renderCategoryButtons() {
+    categoryButtons.innerHTML = "";
+
+    const selectedLang = localStorage.getItem("selectedLang") || "en";
+    categoryBtns.forEach(button => {
+      langs.forEach(lang => {
+        const btn = document.createElement("button");
+        btn.className = `btn-${button.type} ${lang}` + (button.type === "all" ? " active" : "");
+        btn.setAttribute("data-type", button.type);
+        btn.textContent = button.label[lang];
+        btn.style.display = lang === selectedLang ? "inline-block" : "none";
+        categoryButtons.appendChild(btn);
+      });
+    });
+  
+    addCategoryEvents();
+}  
+
+// 掛載分類按鈕事件
+function addCategoryEvents() {
+    const categoryBtns = document.querySelectorAll('.category-filter button');
+    for (let i = 0; i < categoryBtns.length; i++) {
+      categoryBtns[i].addEventListener('click', function () {
+        const type = this.getAttribute('data-type');
+        filterProducts(type);
+        highlightCategory(type);
+      });
     }
-});
+}
 
-// 圖片放大 - Lightbox 功能
-const images = document.querySelectorAll(".product-img");
-let currentIndex = 0;
-
-// 開啟放大圖
-function openLightbox(src) {
-    document.getElementById("lightbox-img").src = src;
-    document.getElementById("lightbox").style.display = "flex";
-
-    // 記錄目前點擊的圖片位置
-    for (let i = 0; i < images.length; i++) {
-        if (images[i].src === src) {
-            currentIndex = i;
-            break;
+// 商品分類篩選函式
+function filterProducts(type) {
+    const items = document.querySelectorAll('.product-item');
+    for (let i = 0; i < items.length; i++) {
+        const item = items[i];
+        if (type === 'all') {
+            item.style.display = 'block';
+        } else {
+            item.style.display = item.classList.contains(type) ? 'block' : 'none';
         }
     }
-
-    document.querySelector("header").style.display = "none"; // 隱藏導覽列
 }
 
-// 關閉放大圖
-function closeLightbox() {
-    document.getElementById("lightbox").style.display = "none";
-    document.querySelector("header").style.display = ""; // 顯示導覽列
+function highlightCategory(type) {
+    const allButtons = document.querySelectorAll('.category-filter button');
+    for (let i = 0; i < allButtons.length; i++) {
+        allButtons[i].classList.remove('active');
+        if (allButtons[i].getAttribute('data-type') === type) {
+            allButtons[i].classList.add('active');
+        }
+    }
 }
-
-// 顯示上一張
-function showPrev() {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    document.getElementById("lightbox-img").src = images[currentIndex].src;
-}
-// 顯示下一張
-function showNext() {
-    currentIndex = (currentIndex + 1) % images.length;
-    document.getElementById("lightbox-img").src = images[currentIndex].src;
-}
-
-// 所有 product-img 加入事件監聽（綁定點擊事件）
-for (let i = 0; i < images.length; i++) {
-    images[i].addEventListener("click", function () {
-        openLightbox(this.src);
-    });
-}
-// 左右箭頭與關閉按鈕
-document.querySelector(".arrow.left").addEventListener("click", function (event) {
-    event.stopPropagation();
-    showPrev();
-});
-document.querySelector(".arrow.right").addEventListener("click", function (event) {
-    event.stopPropagation();
-    showNext();
-});
-document.getElementById("lightbox").onclick = closeLightbox;
-document.querySelector(".close-btn").onclick = closeLightbox;
+renderCategoryButtons();
 
 
 function renderCakes(data) {  
     const container = document.getElementById("cakeContainer");
+    container.innerHTML = "";
+    
 
     data.forEach(cake => {
         const card = document.createElement("div");
@@ -547,3 +542,86 @@ function renderCakes(data) {
 renderCakes(cakeData); // 呼叫渲染
 showLanguage(localStorage.getItem("selectedLang") || "en");
 
+
+// 圖片放大 - Lightbox 功能
+const images = document.querySelectorAll(".product-img");
+let currentIndex = 0;
+
+// 開啟放大圖
+function openLightbox(src) {
+    document.getElementById("lightbox-img").src = src;
+    document.getElementById("lightbox").style.display = "flex";
+
+    // 記錄目前點擊的圖片位置
+    for (let i = 0; i < images.length; i++) {
+        if (images[i].src === src) {
+            currentIndex = i;
+            break;
+        }
+    }
+
+    document.querySelector("header").style.display = "none"; // 隱藏導覽列
+}
+
+// 關閉放大圖
+function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+    document.querySelector("header").style.display = ""; // 顯示導覽列
+}
+
+// 顯示上一張
+function showPrev() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    document.getElementById("lightbox-img").src = images[currentIndex].src;
+}
+// 顯示下一張
+function showNext() {
+    currentIndex = (currentIndex + 1) % images.length;
+    document.getElementById("lightbox-img").src = images[currentIndex].src;
+}
+
+// 所有 product-img 加入事件監聽（綁定點擊事件）
+for (let i = 0; i < images.length; i++) {
+    images[i].addEventListener("click", function () {
+        openLightbox(this.src);
+    });
+}
+// 左右箭頭與關閉按鈕
+document.querySelector(".arrow.left").addEventListener("click", function (event) {
+    event.stopPropagation();
+    showPrev();
+});
+document.querySelector(".arrow.right").addEventListener("click", function (event) {
+    event.stopPropagation();
+    showNext();
+});
+document.getElementById("lightbox").onclick = closeLightbox;
+document.querySelector(".close-btn").onclick = closeLightbox;
+
+document.addEventListener("click", function (e) {
+    // 點擊其他地方時隱藏文字與重設點擊次數
+    authBtn.classList.remove("show-text");
+    clickCount = 0;
+
+    // 點其他地方關閉選單項目
+    if (isMenuOpen && !menuOverlay.contains(e.target) && !menuToggle.contains(e.target)) {
+        menuOverlay.classList.add("hidden");
+        menuToggle.src = "image/menu.png";
+        isMenuOpen = false;
+    }
+
+    // 點擊不是語言按鈕和選單時，關閉語言選單
+    if (langOptions.style.display === "flex" && !langOptions.contains(e.target) && !langToggle.contains(e.target)) {
+        langOptions.style.display = "none";
+    }
+
+    // 點擊不是主題按鈕和選單時，關閉主題選單    
+    if (themeOptions.style.display === "flex" && !themeOptions.contains(e.target) && !themeToggle.contains(e.target)) {
+        themeOptions.style.display = "none";
+    }
+
+    // 點擊其他區域時隱藏音量滑桿
+    if (!muteBtn.contains(e.target) && !volumeSlider.contains(e.target)) {
+        volumeControl.style.display = 'none';
+    }    
+});

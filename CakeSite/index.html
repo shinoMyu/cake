@@ -12,8 +12,17 @@
     <!-- Header -->
     <header>
         <div class="header-container" id="top">
-            <div class="header-logo">
-                <img src="image/Logo.jpg" alt="Logo">
+            <div class="left">
+                <div class="header-logo">
+                    <img src="image/Logo.jpg" alt="Logo">
+                </div>
+                <div class="theme-switch">
+                    <button class="theme-toggle" title="theme"></button>
+                    <div class="theme-options" id="themeOptions">
+                    <button data-theme="default">Orange</button>
+                    <button data-theme="blue">Blue</button>
+                    </div>
+                </div>
             </div>
             <nav class="navMenu-desktop">
                 <ul>
@@ -59,7 +68,7 @@
         <!-- Introduction -->
         <section id="introduction">
             <div class="language-switch" id="langSwitcher">
-                <button class="lang-toggle"></button>
+                <button class="lang-toggle" title="language"></button>
                 <div class="lang-options" id="langOptions">
                     <button class="btn-en active">EN</button>
                     <button class="btn-traditional">繁體</button>
@@ -77,13 +86,13 @@
                         Your browser doesn't support HTML video.
                     </video>
                     <div class="video-controls">
-                        <button id="playPauseBtn"><i class="fas fa-play"></i></button>
-                        <button id="muteBtn"><i class="fas fa-volume-mute"></i></button>
+                        <button id="playPauseBtn" title="play"><i class="fas fa-play"></i></button>
+                        <button id="muteBtn" title="audio"><i class="fas fa-volume-mute"></i></button>
                         <div id="volumeControl">
                             <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="1">
                           </div>
                         <input type="range" id="progressBar" value="0" min="0" max="100">
-                        <button id="replayBtn"><i class="fas fa-rotate-left"></i></button>                        
+                        <button id="replayBtn" title="Replay"><i class="fas fa-rotate-left"></i></button>                        
                     </div>
                 </div>
                 <div class="intro-text">
@@ -118,26 +127,8 @@
                 <h2 class="section-title en">Products</h2>
                 <h2 class="section-title traditional" style="display: none;">蛋糕</h2>
                 <h2 class="section-title jp" style="display: none;">ケーキ</h2>
-                <div class="category-filter">
-                    <button class="btn-all active en" data-type="all">All</button>
-                    <button class="btn-all active traditional" data-type="all" style="display: none;">全部</button>
-                    <button class="btn-all active jp" data-type="all" style="display: none;">すべて</button>
-                    <button class="btn-roll en" data-type="roll">Roll Cakes</button>
-                    <button class="btn-roll traditional" data-type="roll" style="display: none;">蛋糕捲</button>
-                    <button class="btn-roll jp" data-type="roll" style="display: none;">ロールケーキ</button>
-                    <button class="btn-cupcake en" data-type="cupcake">Cupcakes</button>
-                    <button class="btn-cupcake traditional" data-type="cupcake" style="display: none;">杯子蛋糕</button>
-                    <button class="btn-cupcake jp" data-type="cupcake" style="display: none;">カップケーキ</button>
-                    <button class="btn-whole en" data-type="whole">Whole Cakes</button>
-                    <button class="btn-whole traditional" data-type="whole" style="display: none;">造型蛋糕</button>
-                    <button class="btn-whole jp" data-type="whole" style="display: none;">ホールケーキ</button>
-                    <button class="btn-others en" data-type="others">Lava Cakes</button>
-                    <button class="btn-others traditional" data-type="others" style="display: none;">其他</button>
-                    <button class="btn-others jp" data-type="others" style="display: none;">その他</button>
-                  </div>
-                <div class="product-grid">
-                    <div id="cakeContainer"></div>
-                </div>
+                <div class="category-filter"></div>
+                <div id="cakeContainer" class="product-grid"></div>
                 <div id="lightbox" class="lightbox">
                     <img id="lightbox-img" class="lightbox-img">
                     <span class="close-btn">✕</span>
@@ -171,6 +162,7 @@
         <p>&copy;2025 CakeSite</p>
     </footer>
     <script src="js/data.js" defer></script>
-    <script src="js/index.js" defer></script>
+    <script src="js/categoryButtons.js" defer></script>
+    <script src="js/index.js" defer ></script>
 </body>
 </html>
