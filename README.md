@@ -14,7 +14,7 @@ It displays a collection of cakes made by a relative, with theme switching (Oran
 
 ---
 
-## 繁體中文
+## 中文
 
 這是一個使用 HTML、CSS 和 JavaScript 製作的個人前端練習網站。
 
