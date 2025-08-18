@@ -23,14 +23,7 @@ import { initVideoPlayer } from "./videoPlayer.js";
 initVideoPlayer();
 
 import { cakeData } from "./cakeData.js";
-import { initCakeRenderer, renderCakes } from "./cakeRender.js";
-
-initCakeRenderer("#cakeContainer");
 const selectedLang = localStorage.getItem("selectedLang") || 'en';
-renderCakes(cakeData, selectedLang);
-
-import { initLightbox } from './lightbox.js';
-initLightbox();
 
 // 語言切換處理
 function toggleLangMenu() {  
@@ -155,6 +148,80 @@ function highlightCategory(type) {
 }
 renderCategoryButtons();
 
+function renderCakes(data) {  
+    const container = document.getElementById("cakeContainer");
+
+    data.forEach(cake => {
+        const card = document.createElement("div");
+        card.className = `product-item ${cake.category}`;
+
+        const img = document.createElement("img");
+        img.src = cake.image;
+        img.alt = cake.name.en;
+        img.className = "product-img";
+        card.appendChild(img);
+
+        // 渲染多語言的 <h3>
+        langs.forEach(lang => {
+            const h3 = document.createElement("h3");
+            h3.className = lang;
+            h3.style.display = "none";
+            h3.textContent = cake.name[lang];
+            card.appendChild(h3);
+      });
+
+        // 渲染多語言的 <p>（flavor）
+        langs.forEach(lang => {
+            if (cake.flavor && cake.flavor[lang]) {
+                const p = document.createElement("p");
+                p.className = lang;
+                p.style.display = "none";
+                p.innerHTML = cake.flavor[lang];  
+                card.appendChild(p);
+            }
+      });
+
+        // 渲染多語言的 <p class="description">
+        langs.forEach(lang => {
+            if (cake.description && cake.description[lang]) {
+                const p = document.createElement("p");
+                p.className = `description ${lang}`;
+                p.style.display = "none";
+                p.textContent = cake.description[lang];
+                card.appendChild(p);
+            }
+      });
+
+        // 渲染多語言的 <p>（size）
+        langs.forEach(lang => {
+            if (cake.size && cake.size[lang]) {
+                const p = document.createElement("p");
+                p.className = lang;
+                p.style.display = "none";
+                p.innerHTML = cake.size[lang];
+                card.appendChild(p);
+            }
+    });  
+
+        // 渲染多語言的 <p>（Style）
+        langs.forEach(lang => {
+            if (cake.Style && cake.Style[lang]) {
+                const p = document.createElement("p");
+                p.className = lang;
+                p.style.display = "none";
+                p.innerHTML = cake.Style[lang];
+                card.appendChild(p);
+            }
+    });  
+        container.appendChild(card);      
+    });
+    // 最後依照 localStorage 的語言顯示一次
+    showLanguage(localStorage.getItem("selectedLang") || "en");    
+}
+
+renderCakes(cakeData); // 呼叫渲染
+showLanguage(localStorage.getItem("selectedLang") || "en");
+
 
 document.addEventListener("click", function (e) {
     // 點擊不是語言按鈕和選單時，關閉語言選單
@@ -162,3 +229,6 @@ document.addEventListener("click", function (e) {
         langOptions.style.display = "none";
     }
 });
+
+import { initLightbox } from './lightbox.js';
+initLightbox();
