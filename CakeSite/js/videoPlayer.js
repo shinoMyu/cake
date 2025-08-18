@@ -4,6 +4,8 @@ export function initVideoPlayer(){
     // video 影片控制區塊
     const video = document.getElementById('intro-video');
     const playPauseBtn = document.getElementById('playPauseBtn');
+    const expandBtn = document.getElementById('expandVideoBtn');
+    const closeFullscreenBtn = document.getElementById("closeFullscreenBtn");
     const muteBtn = document.getElementById('muteBtn');
     const replayBtn = document.getElementById('replayBtn');
     const volumeSlider = document.getElementById('volumeSlider');
@@ -18,6 +20,7 @@ export function initVideoPlayer(){
         if (video.paused) {
             video.play();
             playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            playPauseBtn.title = "Pause";            
             progressBar.style.display = 'block';
     
             let buttons = document.querySelectorAll('.video-controls button');
@@ -28,6 +31,7 @@ export function initVideoPlayer(){
         } else {
             video.pause();
             playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+            playPauseBtn.title = "Play";
             progressBar.style.display = 'none';
     
             // 移除透明
@@ -37,7 +41,37 @@ export function initVideoPlayer(){
             }
         }
     };
-    
+
+    // 展開全螢幕
+    expandBtn.onclick = function () {
+        if (!document.fullscreenElement) {
+            // 讓整個 video-container 進入全螢幕
+            video.parentElement.requestFullscreen().catch(err => {
+                console.log(`Error attempting to enable full-screen mode: ${err.message}`);
+            });
+            expandBtn.innerHTML = '<i class="fas fa-compress"></i>'; // 切換成縮小 icon
+            expandBtn.title = "Exit Fullscreen";
+        } else {
+            // 如果已經是全螢幕就退出
+            document.exitFullscreen();
+            expandBtn.innerHTML = '<i class="fas fa-expand"></i>'; // 回復成展開 icon
+            expandBtn.title = "Enter Fullscreen";
+        }
+    };
+
+    // 退出全螢幕
+    document.addEventListener("fullscreenchange", () => {
+        if (!document.fullscreenElement) {
+            expandBtn.innerHTML = '<i class="fas fa-expand"></i>';
+        }
+    });
+
+    closeFullscreenBtn.onclick = function () {
+        if (document.fullscreenElement) {
+            document.exitFullscreen();
+        }
+    };
+
     // 重播影片
     replayBtn.onclick = function () {
         video.currentTime = 0;
@@ -54,9 +88,11 @@ export function initVideoPlayer(){
         // 根據靜音狀態決定圖示和滑桿顯示
         if (video.muted) {
             muteBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+            muteBtn.title = "Unmute";
             volumeControl.style.display = 'none';
         } else {
             muteBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+            muteBtn.title = "Mute";
             volumeControl.style.display = 'block';
 
             // 如果解除靜音但 volume 是 0，自動設一點點聲音
