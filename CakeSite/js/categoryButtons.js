@@ -1,4 +1,4 @@
-const categoryBtns = [
+export const categoryBtns = [
     {
       type: "all",
       label: {
