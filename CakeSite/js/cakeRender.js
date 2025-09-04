@@ -1,4 +1,5 @@
 import { LANGS } from "./langConfig.js";
+import { bindLightboxEvents } from "./lightbox.js"; 
 
 let cakeContainerEl;
 
@@ -30,7 +31,7 @@ export function renderCakes(data, lang) {
         nameEl.textContent = cake.name[l];
         card.appendChild(nameEl);
 
-        if (cake.flavor && cake.flavor[lang]) {
+        if (cake.flavor && cake.flavor[l]) {
         const flavor = document.createElement("p");
         flavor.className = l;
         flavor.style.display = l === lang ? "block" : "none";
@@ -38,7 +39,7 @@ export function renderCakes(data, lang) {
         card.appendChild(flavor);
         }
 
-        if (cake.description && cake.description[lang]) {
+        if (cake.description && cake.description[l]) {
         const desc = document.createElement("p");
         desc.className = `description ${l}`;
         desc.style.display = l === lang ? "block" : "none";
@@ -46,7 +47,7 @@ export function renderCakes(data, lang) {
         card.appendChild(desc);
         }
 
-        if (cake.size && cake.size[lang]) {
+        if (cake.size && cake.size[l]) {
         const size = document.createElement("p");
         size.className = l;
         size.style.display = l === lang ? "block" : "none";
@@ -54,7 +55,7 @@ export function renderCakes(data, lang) {
         card.appendChild(size);
         }
 
-        if (cake.Style && cake.Style[lang]) {
+        if (cake.Style && cake.Style[l]) {
         const style = document.createElement("p");
         style.className = l;
         style.style.display = l === lang ? "block" : "none";
@@ -62,8 +63,9 @@ export function renderCakes(data, lang) {
         card.appendChild(style);
         }
     });
-
     cakeContainerEl.appendChild(card);
   });
+  // 每次渲染後重新綁定 Lightbox
+  bindLightboxEvents();  
 }
 

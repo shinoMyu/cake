@@ -18,8 +18,5 @@ initMusicPlayer();
 initVideoPlayer();
 renderCategoryButtons();
 initCakeRenderer("#cakeContainer");
-
-initLightbox();
-
-
 initLangManager();
+initLightbox();
