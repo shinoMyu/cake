@@ -68,20 +68,26 @@ HTML、CSS、JavaScript を使って作成した個人のフロントエンド�
 
 ## 🌟 Features
 
-- Theme switch (Orange / Blue)
+- Theme switching (Orange / Blue)
 - Multi-language content (EN / Traditional Chinese / Japanese)
-- Lightbox image viewer
+- Dynamic cake rendering from data (cakeData.js)
+- Lightbox image viewer (with prev/next navigation)
+- Custom video player (play, pause, replay, volume, fullscreen)
+- Background music toggle (auto-pauses when video plays)
 - Login simulation (via LocalStorage)
-- Responsive design
+- Responsive mobile-friendly design (custom menu, flexible layout)
+- Modular JavaScript structure for maintainability
 
 ## 🛠️ Built With
 
 - HTML5 / CSS3
-- JavaScript (Vanilla)
+- JavaScript (Vanilla, ES Modules)
 - LocalStorage (login simulation)
-- Responsive Design (Media Queries)
+- Responsive design (Media Queries, custom mobile menu)
 
 ## 🚀 How to Run Locally
 
 1. Clone the repository
-2. Simply open `index.html` in your browser.
+2. Open the project folder in VS Code
+3. Use the **Live Server** extension (or any local web server)
+4. Open `http://localhost:5500/index.html` (the port may differ)
