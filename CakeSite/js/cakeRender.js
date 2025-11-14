@@ -39,14 +39,6 @@ export function renderCakes(data, lang) {
         card.appendChild(flavor);
         }
 
-        if (cake.description && cake.description[l]) {
-        const desc = document.createElement("p");
-        desc.className = `description ${l}`;
-        desc.style.display = l === lang ? "block" : "none";
-        desc.textContent = cake.description[lang];
-        card.appendChild(desc);
-        }
-
         if (cake.size && cake.size[l]) {
         const size = document.createElement("p");
         size.className = l;
@@ -61,6 +53,14 @@ export function renderCakes(data, lang) {
         style.style.display = l === lang ? "block" : "none";
         style.innerHTML = cake.Style[lang];
         card.appendChild(style);
+        }
+
+        if (cake.description && cake.description[l]) {
+          const desc = document.createElement("p");
+          desc.className = `description ${l}`;
+          desc.style.display = l === lang ? "block" : "none";
+          desc.innerHTML = cake.description[lang];
+          card.appendChild(desc);
         }
     });
     cakeContainerEl.appendChild(card);

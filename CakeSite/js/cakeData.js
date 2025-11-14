@@ -56,6 +56,21 @@ export const cakeData = [
     },
     {
         id: "cake04",
+        category: "others",
+        image: "image/Molten Chocolate Cake.jpg",
+        name: {
+            en: "Molten Chocolate Cake",
+            traditional: "爆漿巧克力蛋糕",
+            jp: "フォンダンショコラ",
+        },
+        description: {
+            en: "A rich, molten chocolate cake topped with glossy chocolate sauce.",
+            traditional: "蛋糕體鬆軟細緻，內層包裹香濃巧克力醬與濃郁奶霜，層次豐富。",
+            jp: "とろけるような濃厚フォンダンショコラに、チョコソースをたっぷりかけたリッチな味わい。",            
+        }
+    },
+    {
+        id: "cake05",
         category: "cupcake",
         image: "image/Cupcake-1.jpg",
         name: {
@@ -70,7 +85,7 @@ export const cakeData = [
         }
     },
     {
-        id: "cake05",
+        id: "cake06",
         category: "cupcake",
         image: "image/Cupcake-2.jpg",
         name: {
@@ -82,21 +97,6 @@ export const cakeData = [
             en: "These colorful cupcakes are specially made for Children's Day. Decorated with fun toppers, smiley faces, and cheerful details.",
             traditional: "繽紛色彩與童趣插牌，專為兒童節打造的杯子蛋糕。",
             jp: "子どもの日のために作られたカラフルなカップケーキ。見ているだけで楽しくなるデザイン。ふわっとしたクリームと一緒に、ワクワク感も味わえます。",
-        }
-    },
-    {
-        id: "cake06",
-        category: "others",
-        image: "image/Molten Chocolate Cake.jpg",
-        name: {
-            en: "Molten Chocolate Cake",
-            traditional: "爆漿巧克力蛋糕",
-            jp: "フォンダンショコラ",
-        },
-        description: {
-            en: "A rich, molten chocolate cake topped with glossy chocolate sauce.",
-            traditional: "蛋糕體鬆軟細緻，內層包裹香濃巧克力醬與濃郁奶霜，層次豐富。",
-            jp: "とろけるような濃厚フォンダンショコラに、チョコソースをたっぷりかけたリッチな味わい。",
         }
     },
     {
@@ -159,8 +159,8 @@ export const cakeData = [
             jp: "<strong>サイズ:</strong> 8インチ",
         },
         description: {
-            en: "Color: Crystal Blue<br>Floral decoration",
-            jp: "カラー: アイスブルー<br>フラワーデコレーション",
+            en: "<p>Color: Crystal Blue</p><p>Floral decoration</p>",
+            jp: "<p>カラー: アイスブルー</p><p>フラワーデコレーション</p>",
         }
     },
     {
@@ -182,8 +182,8 @@ export const cakeData = [
             jp: "<strong>スタイル:</strong> 油絵風",
         },
         description: {
-            en: "Floral decoration",
-            jp: "フラワーデコレーション",
+            en: "<p>Floral decoration</p>",
+            jp: "<p>フラワーデコレーション</p>",
         }
     },
     {
@@ -206,8 +206,8 @@ export const cakeData = [
             jp: "<strong>スタイル:</strong> インスタ風",
         },
         description: {
-            en: "Purple retro with bow",
-            jp: "パープル・レトロ・リボン",
+            en: "<p>Purple retro with bow</p>",
+            jp: "<p>パープル・レトロ・リボン</p>",
         }
     }
 ]

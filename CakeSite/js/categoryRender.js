@@ -7,7 +7,7 @@ export function renderCategoryButtons(lang = getCurrentLang()) {
 
   categoryBtns.forEach(button => {
     const btn = document.createElement("button");
-    btn.className = `btn-${button.type}` + (button.type === "all" ? " active" : "");
+    btn.className = `btn-${button.type} ${lang} ` + (button.type === "all" ? "active" : "");
     btn.setAttribute("data-type", button.type);
     btn.textContent = button.label[lang];
     container.appendChild(btn);
