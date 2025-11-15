@@ -41,7 +41,7 @@ HTML、CSS、JavaScript を使って作成した個人のフロントエンド�
 
 ### 🖼️ Home Page
 <p align="center">
-  <img src="CakeSite/image/preview/screenshot-home.png" alt="Home Page" width="600" />
+  <img src="CakeSite/image/preview/home page.png" alt="Home Page" width="600" />
 </p>
 
 ### 🎨 Theme Switching
