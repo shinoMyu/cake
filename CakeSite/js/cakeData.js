@@ -81,7 +81,7 @@ export const cakeData = [
         description: {
             en: "A sweet cupcake topped with whipped cream, fruit, and an adorable bear cookie.",
             traditional: "搭配鮮奶油、水果與綠葉裝飾的小熊杯子蛋糕，清新又療癒。",
-            jp: "ふんわり生クリームに、フルーツと小さなくまのクッキーをトッピング。",
+            jp: "ふんわり生クリームに、フルーツとくまのクッキーをトッピング。",
         }
     },
     {
@@ -94,9 +94,9 @@ export const cakeData = [
             jp: "カップケーキ",
         },
         description: {
-            en: "These colorful cupcakes are specially made for Children's Day. Decorated with fun toppers, smiley faces, and cheerful details.",
-            traditional: "繽紛色彩與童趣插牌，專為兒童節打造的杯子蛋糕。",
-            jp: "子どもの日のために作られたカラフルなカップケーキ。見ているだけで楽しくなるデザイン。ふわっとしたクリームと一緒に、ワクワク感も味わえます。",
+            en: "Colorful mini cakes topped with fruit, cream, and cute cookie bears—sweet and cheerful in every bite.",
+            traditional: "繽紛的杯子蛋糕組合，以鮮水果、鮮奶油與可愛的小熊餅乾點綴，甜甜的療癒感滿滿。",
+            jp: "フルーツと生クリーム、くまのクッキーをのせたカラフルなカップケーキ。見ても食べても癒されます。",
         }
     },
     {
@@ -150,6 +150,70 @@ export const cakeData = [
         image: "image/Whole Cake-4.jpg",
         name: {
             en: "Whole Cake",
+            traditional: "水果蛋糕",
+            jp: "フルーツケーキ",
+        },
+        size: {
+            en: "<strong>size:</strong> 4 inch",
+            traditional: "<strong>尺寸:</strong> 4寸",
+            jp: "<strong>サイズ:</strong> 4インチ",
+        }
+    },   
+    {
+        id: "cake11",
+        category: "whole",
+        image: "image/Whole Cake-5.jpg",
+        name: {
+            en: "Whole Cake",
+            traditional: "水果蛋糕",
+            jp: "フルーツケーキ",
+        },
+        size: {
+            en: "<strong>size:</strong> 4 inch",
+            traditional: "<strong>尺寸:</strong> 4寸",
+            jp: "<strong>サイズ:</strong> 4インチ",
+        }
+    },    
+    {
+        id: "cake12",
+        category: "whole",
+        image: "image/Whole Cake-6.jpg",
+        name: {
+            en: "Whole Cake",
+            traditional: "造型蛋糕",
+            jp: "ホールケーキ",
+        },
+        size: {
+            en: "<strong>size:</strong> 6 inch",
+            traditional: "<strong>尺寸:</strong> 6寸",
+            jp: "<strong>サイズ:</strong> 6インチ",
+        }
+    },
+    {
+        id: "cake13",
+        category: "whole",
+        image: "image/Whole Cake-7.jpg",
+        name: {
+            en: "Whole Cake",
+            traditional: "紫色復古蝴蝶結蛋糕",
+            jp: "ホールケーキ",
+        },
+        size: {
+            en: "<strong>size:</strong> 6 inch",
+            traditional: "<strong>尺寸:</strong> 6寸",
+            jp: "<strong>サイズ:</strong> 6インチ",
+        },
+        description: {
+            en: "<p>Purple retro with bow</p>",
+            jp: "<p>パープル・レトロ・リボン</p>",
+        }
+    },    
+    {
+        id: "cake14",
+        category: "whole",
+        image: "image/Whole Cake-8.jpg",
+        name: {
+            en: "Whole Cake",
             traditional: "碎冰藍鮮花蛋糕",
             jp: "ホールケーキ",
         },
@@ -159,14 +223,14 @@ export const cakeData = [
             jp: "<strong>サイズ:</strong> 8インチ",
         },
         description: {
-            en: "<p>Color: Crystal Blue</p><p>Floral decoration</p>",
-            jp: "<p>カラー: アイスブルー</p><p>フラワーデコレーション</p>",
+            en: "<p><strong>Color:</strong> Crystal Blue</p><p>Floral decoration</p>",
+            jp: "<p><strong>カラー:</strong> アイスブルー</p><p>フラワーデコレーション</p>",
         }
     },
     {
-        id: "cake11",
+        id: "cake15",
         category: "whole",
-        image: "image/Whole Cake-5.jpg",
+        image: "image/Whole Cake-9.jpg",
         name: {
             en: "Whole Cake",
             traditional: "油畫風鮮花蛋糕",
@@ -187,12 +251,12 @@ export const cakeData = [
         }
     },
     {
-        id: "cake12",
+        id: "cake16",
         category: "whole",
-        image: "image/Whole Cake-6.jpg",
+        image: "image/Whole Cake-10.jpg",
         name: {
             en: "Whole Cake",
-            traditional: "紫色復古蝴蝶結蛋糕",
+            traditional: "鮮花蛋糕",
             jp: "ホールケーキ",
         },
         size: {
@@ -200,14 +264,9 @@ export const cakeData = [
             traditional: "<strong>尺寸:</strong> 6寸",
             jp: "<strong>サイズ:</strong> 6インチ",
         },
-        Style: {
-            en: "<strong>Style:</strong> Instagram style",
-            traditional: "<strong>風格:</strong> ins風",
-            jp: "<strong>スタイル:</strong> インスタ風",
-        },
         description: {
-            en: "<p>Purple retro with bow</p>",
-            jp: "<p>パープル・レトロ・リボン</p>",
+            en: "<p>Floral decoration</p>",
+            jp: "<p>フラワーデコレーション</p>",
         }
     }
 ]
