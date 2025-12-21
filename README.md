@@ -40,6 +40,8 @@ HTML、CSS、JavaScript を使って作成した個人のフロントエンド�
 ## 📸 Preview
 
 ### 🖼️ Home Page
+*Guest view (before login)*
+
 <p align="center">
   <img src="CakeSite/image/preview/home page.png" alt="Home Page" width="600" />
 </p>
@@ -50,6 +52,8 @@ HTML、CSS、JavaScript を使って作成した個人のフロントエンド�
 </p>
 
 ### 🌐 Language Options
+*Logged-in view*
+
 <p align="center">
   <img src="CakeSite/image/preview/lang-tw.png" alt="Language Options1" width="45%" style="display:inline-block; margin-right: 10px;" />
   <img src="CakeSite/image/preview/lang-jp.png" alt="Language Options2" width="45%" style="display:inline-block;" />
@@ -58,6 +62,11 @@ HTML、CSS、JavaScript を使って作成した個人のフロントエンド�
 ### 🔐 Login Page
 <p align="center">
   <img src="CakeSite/image/preview/login-form.png" alt="Login Page" width="600" />
+</p>
+
+### 📱 Tablet View
+<p align="center">
+  <img src="CakeSite/image/preview/tablet-view.png" alt="Tablet View" width="600" />
 </p>
 
 ### 📱 Mobile View
