@@ -26,7 +26,7 @@ export function initMusicPlayer(){
 }
 
 export function pauseMusicExternally(){
-    if (!music || music.pause) return;
+    if (!music) return;
 
     if (isPlaying) {
         music.pause();
@@ -37,11 +37,11 @@ export function pauseMusicExternally(){
 }
 
 export function resumeIfInterrupted(){
-    if (!music || !musicWasInterrupted) return;
+    if (!music) return;
 
     if (musicWasInterrupted) {
         music.play();
-        musicIcon.src = 'image/music_note.png';
+        musicIcon.src = 'image/music.png';
         isPlaying = true;
         musicWasInterrupted = false;
     }  

@@ -119,11 +119,15 @@ export function initVideoPlayer(){
         }
     };
     
-    // 如果影片暫停或播完，恢復音樂（只有當音樂之前有被暫停）
-    video.onpause = function () {
+    video.onplay = function () {
         musicControl.pauseMusicExternally();
     };
-    
+
+    // 如果影片暫停或播完，恢復音樂（只有當音樂之前有被暫停）
+    video.onpause = function () {
+        musicControl.resumeIfInterrupted();
+    };
+
     // 當影片播放時，更新 slider(播放進度條)
     video.ontimeupdate = function () {
         progressBar.value = (video.currentTime / video.duration) * 100;
