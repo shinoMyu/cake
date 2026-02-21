@@ -94,9 +94,11 @@ HTML、CSS、JavaScript を使って作成した個人のフロントエンド�
 - LocalStorage (login simulation)
 - Responsive design (Media Queries, custom mobile menu)
 
-## 🚀 How to Run Locally
+## 🚀 How to Run
 
-1. Clone the repository
-2. Open the project folder in VS Code
-3. Use the **Live Server** extension (or any local web server)
-4. Open `http://localhost:5500/index.html` (the port may differ)
+This project is deployed using GitHub Pages.
+
+You can visit the website directly at:
+https://shinoMyu.github.io/cake/
+
+No local server setup is required.
