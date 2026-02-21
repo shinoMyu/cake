@@ -43,36 +43,36 @@ HTML、CSS、JavaScript を使って作成した個人のフロントエンド�
 *Guest view (before login)*
 
 <p align="center">
-  <img src="CakeSite/image/preview/home page.png" alt="Home Page" width="600" />
+  <img src="docs/image/preview/home page.png" alt="Home Page" width="600" />
 </p>
 
 ### 🎨 Theme Switching
 <p align="center">
-  <img src="CakeSite/image/preview/theme-blue.png" alt="Theme Switching" width="600" />
+  <img src="docs/image/preview/theme-blue.png" alt="Theme Switching" width="600" />
 </p>
 
 ### 🌐 Language Options
 *Logged-in view*
 
 <p align="center">
-  <img src="CakeSite/image/preview/lang-tw.png" alt="Language Options1" width="45%" style="display:inline-block; margin-right: 10px;" />
-  <img src="CakeSite/image/preview/lang-jp.png" alt="Language Options2" width="45%" style="display:inline-block;" />
+  <img src="docs/image/preview/lang-tw.png" alt="Language Options1" width="45%" style="display:inline-block; margin-right: 10px;" />
+  <img src="docs/image/preview/lang-jp.png" alt="Language Options2" width="45%" style="display:inline-block;" />
 </p>
 
 ### 🔐 Login Page
 <p align="center">
-  <img src="CakeSite/image/preview/login-form.png" alt="Login Page" width="600" />
+  <img src="docs/image/preview/login-form.png" alt="Login Page" width="600" />
 </p>
 
 ### 📱 Tablet View
 <p align="center">
-  <img src="CakeSite/image/preview/tablet-view.png" alt="Tablet View" width="600" />
+  <img src="docs/image/preview/tablet-view.png" alt="Tablet View" width="600" />
 </p>
 
 ### 📱 Mobile View
 <p align="center">
-  <img src="CakeSite/image/preview/mobile-view.png" alt="Mobile View1" width="45%" style="display:inline-block; margin-right: 10px;" />
-  <img src="CakeSite/image/preview/mobile-view2.png" alt="Mobile View2" width="45%" style="display:inline-block;" />
+  <img src="docs/image/preview/mobile-view.png" alt="Mobile View1" width="45%" style="display:inline-block; margin-right: 10px;" />
+  <img src="docs/image/preview/mobile-view2.png" alt="Mobile View2" width="45%" style="display:inline-block;" />
 </p>
 
 ## 🌟 Features
@@ -94,9 +94,10 @@ HTML、CSS、JavaScript を使って作成した個人のフロントエンド�
 - LocalStorage (login simulation)
 - Responsive design (Media Queries, custom mobile menu)
 
-## 🚀 How to Run Locally
+## 🚀 How to Run
 
-1. Clone the repository
-2. Open the project folder in VS Code
-3. Use the **Live Server** extension (or any local web server)
-4. Open `http://localhost:5500/index.html` (the port may differ)
+This project is deployed using GitHub Pages.
+You can visit the website directly at:
+http://shinomyu.github.io/cake/
+
+No local server setup is required.
