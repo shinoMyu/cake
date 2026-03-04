@@ -33,17 +33,20 @@ body.theme-blue {
 
 @font-face {
     font-family: "font-en";
-    src: url(../fonts/SourGummy-Light.ttf);
+    src: url(../fonts/SourGummy-Light.woff2);
+    font-display: swap;
 }
 
 @font-face {
     font-family: "font-traditional";
-    src: url(../fonts/jf-openhuninn-2.1.ttf);
+    src: url(../fonts/jf-openhuninn-21.woff2);
+    font-display: swap;
 }
 
 @font-face {
     font-family: "font-jp";
-    src: url(../fonts/KiwiMaru-Regular.ttf);
+    src: url(../fonts/KiwiMaru-Regular.woff2);
+    font-display: swap;
 }
 
 header *,

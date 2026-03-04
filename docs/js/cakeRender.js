@@ -19,6 +19,7 @@ export function renderCakes(data, lang) {
     // 圖片
     const img = document.createElement("img");
     img.src = cake.image;
+    img.loading = "lazy";
     img.alt = cake.name.en;
     img.className = "product-img";
     card.appendChild(img);
