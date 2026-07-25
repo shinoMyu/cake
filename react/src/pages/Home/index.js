@@ -3,13 +3,16 @@ import Introduction from "./components/Introduction";
 import Products from "./components/Products";
 import About from "./components/About";
 import Footer from "./components/Footer";
+import "./index.css";
 
 const Home = () => {
     return <div>
         <Header />
-        <Introduction />
-        <Products />
-        <About />
+        <main>
+            <Introduction />
+            <Products />
+            <About />
+        </main>
         <Footer />
     </div>
 }

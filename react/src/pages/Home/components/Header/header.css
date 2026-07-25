@@ -1,0 +1,296 @@
+/* =======================
+   header & Navigation
+======================= */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    width: 100%;
+    background-color: var(--bg-main);
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.left, .right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 0 10px;
+}
+
+.header-logo img {
+    padding-left: 5px;
+    width: 70px;
+}
+.theme-switch {
+    position: relative;
+}
+.theme-toggle {
+    width: 33px;
+    height: 33px;
+    background-color: var(--bg-main);
+    border: 2px solid var(--btn-bg);
+    color: var(--text-strong);
+    margin-left: 10px;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+  
+.theme-options {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background-color: var(--bg-subtle);
+    border: 1px solid var(--btn-bg);
+    border-radius: 8px;
+    padding: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.theme-options button {
+    margin: 5px 0;
+    padding: 3px 8px;
+    border: none;
+    background-color: var(--btn-bg-main);
+    border: 1px solid var(--btn-bg);
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #7a4e20;
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    color: var(--text-strong);
+}
+
+.navMenu-desktop {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.navMenu-desktop ul {
+    display: flex;
+    gap: 50px;
+}
+
+.navMenu-desktop ul li {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+
+/* =======================
+   Auth (Login / Logout)
+======================= */
+
+.auth {
+    width: auto;
+    position: relative;
+}
+
+.login-register {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    background-color: var(--btn-bg);
+    border-radius: 10px;
+    padding: 5px 10px;
+    border: 2px solid white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-register:hover {
+    background-color: var(--btn-hover);
+}
+
+.auth img {
+    width: 40px;
+}
+
+/* =======================
+    Music Player
+======================= */
+
+.music button {
+    border: none;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 30%;
+    background-color: var(--btn-bg-main);
+    cursor: pointer;
+    display: flex;
+}
+.music img{
+    width: 30px;
+}
+
+/* =======================
+  小螢幕導覽列：漢堡選單樣式
+======================= */
+
+.navMenu-toggle {
+    display: none; /* RWD 時出現 */
+    cursor: pointer;
+}
+
+.navMenu-toggle img {
+    width: 33px;
+}
+
+/* 彈出的導覽選單 */
+.menu-overlay {
+    position: absolute;
+    top: 75px;
+    right: 10px;
+    width: 145px;
+    background-color: var(--bg-subtle);
+    border: 2px solid var(--btn-bg);
+    border-radius: 8px;
+    padding: 10px;
+    z-index: 1100;
+    text-align: center;
+}
+
+.menu-overlay li {
+    margin: 20px 0;
+    font-size: 1.35rem;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+/* =============
+    RWD
+============= */
+
+@media (max-width: 1024px) {
+    .header-logo img {
+        width: 50px;
+    }
+
+    .navMenu-desktop ul {
+        gap: 25px;
+    }
+
+    .navMenu-desktop ul li {
+        font-size: 1.7rem;
+    }    
+
+    .login-register {
+        gap: 8px;
+        font-size: 1rem;
+        padding: 3px 6px;
+    }
+
+    .auth img {
+        width: 33px;
+    }
+}
+  
+@media (max-width:767px) {
+    .header-logo img {
+        padding-left: 15px;
+        width: 50px;
+    }
+
+    .right {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .navMenu-desktop {
+        display: none;
+    }
+
+    .navMenu-toggle {
+        display: flex;
+    } 
+
+    .auth-text {
+        display: none; 
+        background: #fff8f0;
+        padding: 4px 8px;
+        border-radius: 6px;
+        border: 1px solid var(--btn-bg);
+        position: absolute;
+        top: 100%; 
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 999;
+        white-space: nowrap;
+        font-size: 1rem;
+        font-weight: bold;
+    }
+
+    .auth.show-text .auth-text {
+        display: block;
+    }
+
+    .music button {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-container {
+      padding: 0 6px;
+    }
+  
+    .header-logo img {
+      width: 45px;
+      padding: 0px;
+    }
+
+    .left {
+        gap: 10px;
+    }
+
+    .login-register {
+        padding: 4px 8px;
+    }
+
+    .menu-overlay {
+        width: 120px;
+    }
+
+    .menu-overlay li {
+        margin: 16px 0;
+        font-size: 1.2rem;
+    }
+}

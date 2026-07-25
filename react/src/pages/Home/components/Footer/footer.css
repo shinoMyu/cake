@@ -1,0 +1,21 @@
+/* ==============
+    Footer 
+============== */
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--bg-main);
+    margin-top: 5px;
+}
+
+
+/* =============
+    RWD
+============= */
+
+@media (max-width: 480px) {
+    footer {
+        padding: 15px;
+    }
+}

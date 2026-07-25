@@ -1,0 +1,288 @@
+:root {
+    /* 橙色主題（預設） */
+    --bg-main: #fcecd9;
+    --bg-subtle: #fffaf0; 
+    --bg-accent: #ffe5b4;
+    --highlight-color: #fbd897;
+    --btn-bg: #f6bd6d;
+    --btn-hover: #fea245;
+    --btn-border: #f7cc91;
+    --section-title: #d2691e;
+    --intro-title-color: #b66328d1;
+    --text-strong: #d46c3e;
+    --font-dark: #4a3a2a;
+    --btn-bg-main: #f8f8f8; 
+}
+  
+/* 藍色主題 */
+body.theme-blue {
+    --bg-main: #d6ebff;
+    --bg-subtle: #f0f9ff;
+    --bg-accent: #bddbf1;
+    --highlight-color: #a8d4f0;
+    --btn-bg: #84b6e1;
+    --btn-hover: #5da4e0;
+    --btn-border: #8dc8f0;
+    --section-title: #226699;
+    --intro-title-color: #639acc;
+    --text-strong: #3c82c0;
+    --font-dark: #4a3a2a;
+    --btn-bg-main: #f8f8f8;
+}
+  
+
+@font-face {
+    font-family: "font-en";
+    src: url(../../assets/fonts/SourGummy-Light.woff2);
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "font-traditional";
+    src: url(../../assets/fonts/jf-openhuninn-21.woff2);
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "font-jp";
+    src: url(../../assets/fonts/KiwiMaru-Regular.woff2);
+    font-display: swap;
+}
+
+header *,
+.en,
+.btn-en,
+footer {
+    font-family: font-en, sans-serif;
+}
+
+.traditional,
+.btn-traditional {
+    font-family: font-traditional, sans-serif;
+}
+
+.jp,
+.btn-jp {
+    font-family: font-jp, sans-serif;
+}
+
+html {
+    scroll-padding-top: 100px;
+}
+
+/* ===============
+    main
+=============== */
+
+main {
+    padding-top: 90px;
+}
+
+section {
+    background-color: var(--bg-subtle);
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: var(--section-title);
+    font-weight: 400;
+    text-align: center;
+    margin: 25px 0;
+}
+
+/* =======================
+    Language Switcher
+======================= */
+
+.language-switch {
+    position: absolute;
+    top: 35px;
+    right: 25px;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.lang-toggle {
+    width: 36px;
+    height: 36px;
+    background-color: var(--bg-main);
+    border-radius: 50%;
+    border: 2px solid var(--btn-bg);
+    cursor: pointer;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+    padding: 0;
+}
+
+.theme-toggle:hover,
+.lang-toggle:hover {
+    background-color: var(--btn-bg);
+}
+
+.lang-options {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    gap: 8px;
+    padding: 10px;
+    background-color: var(--bg-subtle);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--btn-bg);
+    z-index: 1000;
+}
+
+.lang-options button {
+    background-color: var(--btn-bg-main);
+    border: 1px solid var(--btn-border);
+    border-radius: 15px;
+    padding: 3px 8px;
+    cursor: pointer;
+    font-size: 12px;
+    color: #7a4e20;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.theme-options button:hover,
+.theme-options button.active, 
+.lang-options button:hover,
+.lang-options button.active {
+    background-color: #bddbf1;
+}
+
+/* =======================
+    模糊效果（未登入）
+======================= */
+
+.blurred {
+    filter: blur(5px);
+    max-height: 500px;
+    overflow: hidden;
+    pointer-events: none;
+    user-select: none;
+}
+
+
+/* ==============================
+    Locked / Restricted Section 
+============================== */
+
+.centered-intro {
+    text-align: center;
+}
+
+
+.product-wrapper {
+    position: relative;
+}
+
+.locked-section {
+    filter: none;
+    width: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    background: var(--btn-bg-main);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(100, 150, 255, 0.3);
+    border: 2.5px dashed #4b6378;
+    color: #505d69;
+}
+
+.locked-section p {
+    font-size: 1.6rem;
+}
+
+.locked-section .highlight {
+    font-weight: bold;
+    color: #d9534f;
+    background-color: #fff3cd;
+    padding: 0 4px;
+    border-radius: 4px;
+}
+
+.auth.highlight {
+    animation: pulse 1.2s ease-in-out infinite;
+}
+
+/* =============
+    RWD
+============= */
+
+@media (max-width: 1024px) {  
+    .section-title {
+      font-size: 2.2rem;
+    }
+
+    .locked-section {
+        font-size: 1.4rem;
+    }
+
+}
+  
+@media (max-width:767px) {
+    .lang-options {
+        right: auto;
+        left: 0;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .locked-section {
+        max-width: 350px;
+    }
+
+    .locked-section p {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .blurred {
+        max-height: 400px;
+    }
+
+    .locked-section {
+        max-width: 300px;
+    }
+
+    .locked-section p {
+        font-size: 1.1rem;
+    }    
+}
+
+/* ===========================
+    Animaitons - UI Effects
+=========================== */
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

@@ -1,0 +1,236 @@
+/* =======================
+    Products Section
+======================= */
+
+#products {
+    margin: 15px auto;
+    padding: 5px 20px;
+}
+
+/* =======================
+  Product Category Filter
+======================= */
+
+.category-filter {
+    margin: 25px auto;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.category-filter button {
+    padding: 6px 15px;
+    border-radius: 20px;
+    border: 1px solid var(--btn-border);
+    background-color: var(--btn-bg-main);
+    cursor: pointer;
+    color: #7a4e20;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: background-color 0.3s;
+}
+
+.category-filter button:hover {
+    background-color: var(--bg-accent);
+}
+
+.category-filter button.active {
+    background-color: var(--highlight-color);
+}
+
+/* =======================
+    Product Grid Layout
+======================= */
+
+.product-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+    padding-bottom: 15px;
+}
+
+.product-item {
+    background-color: var(--bg-accent);
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+}
+
+.product-item img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.product-item img:hover {
+    transform: scale(1.03);
+}
+
+.product-item h3 {
+    font-size: 1.6rem;
+    margin: 15px;
+}
+
+.product-item p {
+    font-size: 1.1rem;
+    margin: 10px;
+    color: #4a3a2a;
+}
+
+.product-item p strong {
+    color: var(--text-strong);
+    font-weight: bold;
+}
+
+.product-item .description {
+    font-size: 0.95rem;
+    color: #4a3a2ad2;
+}
+
+.product-item h3.traditional,
+.product-item h3.jp {
+    font-size: 1.5rem; 
+}
+
+.product-item p.traditional,
+.product-item p.jp {
+    font-size: 1.0rem; 
+}
+
+.product-item .description.traditional,
+.product-item .description.jp {
+    font-size: 0.9rem; 
+}
+
+/* =======================
+    Lightbox Overlay
+======================= */
+
+/* Lightbox 背景 */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+/* 放大圖片 */
+.lightbox-img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 32px;
+    color: white;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.lightbox .arrow {
+    width: 60px;
+    position: absolute;
+    top: 45%;
+    cursor: pointer;
+    transform: translateY(-50%);
+    filter: brightness(0) invert(1);
+}
+
+.lightbox .left {
+    left: 20px;
+}
+
+.lightbox .right {
+    right: 20px;
+}
+
+/* =============
+    RWD
+============= */
+
+@media (max-width: 1024px) {
+    .product-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    .product-item p {
+      font-size: 1.3rem;
+    }
+}
+  
+@media (max-width:767px) {
+    .category-filter {
+        gap: 8px;
+    }
+
+    .category-filter button {
+        font-size: 1rem;
+        padding: 5px 11px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(1, minmax(250px, 90%));
+        justify-content: center;
+        gap: 18px;
+    }
+
+    .product-item {
+        padding: 10px;
+    }
+
+    .product-item img {
+        max-width: 75%;
+        margin: 0 auto;
+    }
+    
+    .product-item h3 {
+        font-size: 1.5rem;
+    }
+
+    .product-item p {
+        font-size: 1.2rem;
+        line-height: 1.3;
+    }
+
+    .product-item .description {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-item img {
+        max-width: 90%;
+    }
+
+    .product-grid {
+        margin: 25px 0;
+    }
+
+    .category-filter button {
+        font-size: 0.9rem;
+    }    
+
+    .product-item h3 {
+        font-size: 1.3rem;
+    }
+}
+
