@@ -149,8 +149,6 @@ section {
     transition: background-color 0.3s;
 }
 
-.theme-options button:hover,
-.theme-options button.active, 
 .lang-options button:hover,
 .lang-options button.active {
     background-color: #bddbf1;

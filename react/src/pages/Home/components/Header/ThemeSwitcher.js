@@ -1,0 +1,54 @@
+import { useEffect, useRef, useState } from "react";
+import "./header.css";
+
+const ThemeSwitcher = () => {
+    const [theme, setTheme] = useState(localStorage.getItem("selectedTheme") || "orange");
+    const [showOptions, setShowOptions] = useState(false);
+
+    const themeRef = useRef(null);
+
+    const handleToggle = () => {
+        setShowOptions(prev => !prev)
+    }
+
+    const handleThemeChange = (selectedTheme) => {
+        setTheme(selectedTheme);
+        setShowOptions(false);
+    }
+
+    useEffect(() => {
+        document.body.classList.toggle("theme-blue", theme === "blue");
+        localStorage.setItem("selectedTheme", theme);
+    }, [theme])
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (
+                themeRef.current &&
+                !themeRef.current.contains(event.target)
+            ) {
+                setShowOptions(false);
+            }
+        };
+
+        document.addEventListener("click", handleClickOutside);
+
+        return () => {
+            document.removeEventListener("click", handleClickOutside);
+        };
+    }, []);
+    
+    return (
+        <div className="theme-switch" ref={themeRef}>
+            <button className="theme-toggle" title="theme" onClick={handleToggle}></button>
+            {showOptions && (
+                <div className="theme-options" id="themeOptions">
+                    <button className={theme === "orange" ? "active" : ""} onClick={() => handleThemeChange("orange")}>Orange</button>
+                    <button className={theme === "blue" ? "active" : ""} onClick={() => handleThemeChange("blue")}>Blue</button>
+                </div>
+            )}
+        </div>
+    )
+}
+
+export default ThemeSwitcher;

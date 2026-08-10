@@ -51,7 +51,6 @@ header {
 }
   
 .theme-options {
-    display: none;
     flex-direction: column;
     position: absolute;
     top: 40px;
@@ -75,6 +74,11 @@ header {
     font-weight: bold;
     color: #7a4e20;
     cursor: pointer;
+}
+
+.theme-options button:hover,
+.theme-options button.active {
+    background-color: #bddbf1;
 }
 
 ul {
@@ -190,10 +194,6 @@ a:hover {
     font-weight: bold;
 }
 
-.hidden {
-    display: none;
-}
-
 /* =============
     RWD
 ============= */
@@ -229,7 +229,6 @@ a:hover {
     }
 
     .right {
-        flex-direction: row;
         gap: 10px;
     }
 
