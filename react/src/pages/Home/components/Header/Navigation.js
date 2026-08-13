@@ -1,6 +1,5 @@
 import { useState } from "react";
 import menu from "../../../../assets/image/menu.png";
-import "./header.css";
 
 const navItems = [
     { label: "Home", href: "/" },

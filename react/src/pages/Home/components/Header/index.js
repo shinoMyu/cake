@@ -1,10 +1,10 @@
 import logo from "../../../../assets/image/Logo.jpg";
-import login from "../../../../assets/image/Login.png";
 import music from "../../../../assets/image/music_off.png";
 import musicFile from "../../../../assets/audio/日々の喜び.mp3";
 import "./header.css";
 import ThemeSwitcher from "./ThemeSwitcher";
 import Navigation from "./Navigation";
+import AuthButton from "./AuthButton";
 
 const Header = () => {
     return <header>
@@ -19,12 +19,7 @@ const Header = () => {
             </div>
             <Navigation type={"desktop"} />
             <div className="right">
-                <div className="auth" id="authBtn">
-                    <div className="login-register">
-                        <img src={login} alt="Login/Register" />
-                        <span className="auth-text">Sign in</span>
-                    </div>
-                </div>
+                <AuthButton />
                 <div className="music">
                     <button id="musicBtn" title="Music">
                         <img id="music-icon" src={music} alt="Music" />

@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import "./header.css";
 
 const ThemeSwitcher = () => {
     const [theme, setTheme] = useState(localStorage.getItem("selectedTheme") || "orange");
