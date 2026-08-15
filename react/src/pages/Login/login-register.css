@@ -2,10 +2,8 @@
     font-family: "font-en";
     src: url(../../assets/fonts/SourGummy-Light.woff2);
 }
-.hidden {
-    display: none;
-}
-body {
+
+.login-page {
     font-family: font-en, sans-serif;
     background: #fff8f0;
     display: flex;
@@ -13,6 +11,7 @@ body {
     align-items: center;
     height: 100vh;
 }
+
 .login-container {
     background: white;
     padding: 30px 40px;
@@ -20,18 +19,21 @@ body {
     box-shadow: 0 3px 7px rgba(0, 0, 0, 0.15);
     width: 320px;
 }
+
 h2 {
     margin-bottom: 40px;
     color: #d46c3e;
     text-align: center;
     font-size: 30px;
 }
+
 label {
     display: block;
     margin-bottom: 6px;
     font-weight: 500;
     font-size: 20px;
 }
+
 input[type="text"],
 input[type="email"],
 input[type="password"] {
@@ -43,6 +45,7 @@ input[type="password"] {
     border: 1px solid #ccc;
     font-size: 1em;
 }
+
 button {
     width: 100%;
     background-color: #fea245;
@@ -56,18 +59,22 @@ button {
     transition: background-color 0.3s;
     font-family: font-en, sans-serif;
 }
+
 button:hover {
     background-color: #f79266;
 }
+
 .toggle-link {
     text-align: center;
     margin-top: 15px;
     font-size: 1.3em;
 }
+
 .toggle-text {
     display: block;
     margin-bottom: 5px;
 }
+
 .toggle-link button.login-link {
     all: unset;
     color: #f68b1e;
@@ -75,14 +82,55 @@ button:hover {
     font-weight: bold;
     cursor: pointer;
 }
+
 .toggle-link button.login-link:hover {
     text-decoration: underline;
 }
 
-.error-message{
+.error-message {
     color: darkred;
     font-weight: bold;
     margin-bottom: 10px;
+}
+
+.back-home {
+    margin-top: 15px;
+}
+
+.back-home a {
+    color: #d46c3e;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.back-home a:hover {
+    color: #fea245;
+    text-decoration: underline;
+}
+
+.message-overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 2000;
+}
+
+.message-box {
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.message-box p {
+    margin: 0 0 25px;
+    font-size: 1.3rem;
+    line-height: 1.5;
 }
 
 @media (max-width: 500px) {
@@ -90,21 +138,35 @@ button:hover {
         width: 75%;
         padding: 30px;
     }
+
     h2 {
         font-size: 28px;
     }
+
     label {
         font-size: 18px;
     }
+
     input[type="text"],
     input[type="email"],
     input[type="password"] {
         font-size: 0.95em;
     }
+
     button {
         font-size: 1.25em;
     }
+
     .toggle-link {
         font-size: 1.25em;
+    }
+
+    .message-box p {
+        font-size: 1.2rem;
+    }
+
+    .message-box button {
+        width: 70%;
+        font-size: 1rem;
     }
 }

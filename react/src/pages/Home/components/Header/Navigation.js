@@ -48,6 +48,6 @@ const Navigation = ({ type }) => {
             )}
         </>
     );
-}
+};
 
 export default Navigation;

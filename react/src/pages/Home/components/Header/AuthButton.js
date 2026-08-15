@@ -52,6 +52,6 @@ const AuthButton = () => {
             </div>
         </div>
     )
-}
+};
 
 export default AuthButton;
