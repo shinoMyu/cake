@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom"
+import "../../global/theme.css";
 import "./login-register.css";
 import FormField from "./components/FormField";
 import { validateForm } from "./validation";
@@ -9,7 +10,7 @@ import FeedbackMessage from "./components/FeedbackMessage";
 const Login = () => {
     const [isRegister, setIsRegister] = useState(false);
 
-    const [username, setUserName] = useState("");
+    const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState({});
@@ -25,7 +26,6 @@ const Login = () => {
     };
 
     const resetForm = () => {
-        setUserName("");
         setEmail("");
         setPassword("");
         setError({});
@@ -116,7 +116,7 @@ const Login = () => {
                         label="Username"
                         type="text"
                         value={username}
-                        onChange={(e) => setUserName(e.target.value)}
+                        onChange={(e) => setUsername(e.target.value)}
                         error={error.username}
                         required
                     />

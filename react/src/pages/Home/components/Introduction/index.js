@@ -26,9 +26,9 @@ const Introduction = () => {
                         <button id="expandVideoBtn" title="Enter Fullscreen"><i className="fas fa-expand"></i></button>
                         <button id="muteBtn" title="Mute"><i className="fas fa-volume-mute"></i></button>
                         <div id="volumeControl">
-                            <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="1" />
+                            {/* <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="1" /> */}
                           </div>
-                        <input type="range" id="progressBar" value="0" min="0" max="100" />
+                        {/* <input type="range" id="progressBar" value="0" min="0" max="100" /> */}
                         <button id="replayBtn" title="Replay"><i className="fas fa-rotate-left"></i></button>                        
                         <button id="closeFullscreenBtn" title="Close"><i className="fas fa-times"></i></button>
                     </div>

@@ -11,8 +11,8 @@ const Products = () => {
                 <div id="lightbox" className="lightbox">
                     <img id="lightbox-img" className="lightbox-img" src="" alt="Expanded Image" />
                     <span className="close-btn">✕</span>
-                    <img src="image/left-arrow.png" className="arrow left" alt="Left" />
-                    <img src="image/right-arrow.png" className="arrow right" alt="Right" />
+                    {/* <img src="image/left-arrow.png" className="arrow left" alt="Left" />
+                    <img src="image/right-arrow.png" className="arrow right" alt="Right" /> */}
                 </div>
             </div>
         </section>

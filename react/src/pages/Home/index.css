@@ -1,36 +1,3 @@
-:root {
-    /* 橙色主題（預設） */
-    --bg-main: #fcecd9;
-    --bg-subtle: #fffaf0; 
-    --bg-accent: #ffe5b4;
-    --highlight-color: #fbd897;
-    --btn-bg: #f6bd6d;
-    --btn-hover: #fea245;
-    --btn-border: #f7cc91;
-    --section-title: #d2691e;
-    --intro-title-color: #b66328d1;
-    --text-strong: #d46c3e;
-    --font-dark: #4a3a2a;
-    --btn-bg-main: #f8f8f8; 
-}
-  
-/* 藍色主題 */
-body.theme-blue {
-    --bg-main: #d6ebff;
-    --bg-subtle: #f0f9ff;
-    --bg-accent: #bddbf1;
-    --highlight-color: #a8d4f0;
-    --btn-bg: #84b6e1;
-    --btn-hover: #5da4e0;
-    --btn-border: #8dc8f0;
-    --section-title: #226699;
-    --intro-title-color: #639acc;
-    --text-strong: #3c82c0;
-    --font-dark: #4a3a2a;
-    --btn-bg-main: #f8f8f8;
-}
-  
-
 @font-face {
     font-family: "font-en";
     src: url(../../assets/fonts/SourGummy-Light.woff2);

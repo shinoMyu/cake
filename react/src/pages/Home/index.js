@@ -4,6 +4,7 @@ import Products from "./components/Products";
 import About from "./components/About";
 import Footer from "./components/Footer";
 import "./index.css";
+import "../../global/theme.css";
 
 const Home = () => {
     return <div>

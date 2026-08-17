@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
+import { useTheme } from "../../../../context/ThemeContext";
 
 const ThemeSwitcher = () => {
-    const [theme, setTheme] = useState(localStorage.getItem("selectedTheme") || "orange");
+    const { theme, toggleTheme } = useTheme();
     const [showOptions, setShowOptions] = useState(false);
 
     const themeRef = useRef(null);
@@ -11,14 +12,9 @@ const ThemeSwitcher = () => {
     }
 
     const handleThemeChange = (selectedTheme) => {
-        setTheme(selectedTheme);
+        toggleTheme(selectedTheme);
         setShowOptions(false);
     }
-
-    useEffect(() => {
-        document.body.classList.toggle("theme-blue", theme === "blue");
-        localStorage.setItem("selectedTheme", theme);
-    }, [theme])
 
     useEffect(() => {
         const handleClickOutside = (event) => {
