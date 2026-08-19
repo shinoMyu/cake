@@ -1,0 +1,61 @@
+/* =======================
+    Language Switcher
+======================= */
+
+.language-switch {
+    position: absolute;
+    top: 35px;
+    right: 25px;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.lang-toggle {
+    width: 36px;
+    height: 36px;
+    background-color: var(--bg-main);
+    border-radius: 50%;
+    border: 2px solid var(--btn-bg);
+    cursor: pointer;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+    padding: 0;
+}
+
+.theme-toggle:hover,
+.lang-toggle:hover {
+    background-color: var(--btn-bg);
+}
+
+.lang-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    gap: 8px;
+    padding: 10px;
+    background-color: var(--bg-subtle);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--btn-bg);
+    z-index: 1000;
+}
+
+.lang-options button {
+    background-color: var(--btn-bg-main);
+    border: 1px solid var(--btn-border);
+    border-radius: 15px;
+    padding: 3px 8px;
+    cursor: pointer;
+    font-size: 12px;
+    color: #7a4e20;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.lang-options button:hover,
+.lang-options button.active {
+    background-color: #bddbf1;
+}

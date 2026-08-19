@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import login from "../../../../assets/image/Login.png";
 import { useNavigate } from "react-router-dom"
+import useClickOutside from "../../../../hooks/useClickOutside";
 
 const AuthButton = () => {
     const navigate = useNavigate();
@@ -25,22 +26,7 @@ const AuthButton = () => {
         }
     };
 
-    useEffect(() => {
-        const handleClickOutside = (event) => {
-            if (
-                authRef.current &&
-                !authRef.current.contains(event.target)
-            ) {
-                setShowText(false);
-            }
-        };
-
-        document.addEventListener("click", handleClickOutside);
-
-        return () => {
-            document.removeEventListener("click", handleClickOutside);
-        };
-    }, []);
+    useClickOutside(authRef, () => setShowText(false));
 
     return (
         <div className={`auth ${showText ? "show-text" : ""}`} onClick={handleSignOut} ref={authRef}>

@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useTheme } from "../../../../context/ThemeContext";
+import useClickOutside from "../../../../hooks/useClickOutside";
 
 const ThemeSwitcher = () => {
     const { theme, toggleTheme } = useTheme();
@@ -16,28 +17,13 @@ const ThemeSwitcher = () => {
         setShowOptions(false);
     }
 
-    useEffect(() => {
-        const handleClickOutside = (event) => {
-            if (
-                themeRef.current &&
-                !themeRef.current.contains(event.target)
-            ) {
-                setShowOptions(false);
-            }
-        };
-
-        document.addEventListener("click", handleClickOutside);
-
-        return () => {
-            document.removeEventListener("click", handleClickOutside);
-        };
-    }, []);
+    useClickOutside(themeRef, () => setShowOptions(false));
     
     return (
         <div className="theme-switch" ref={themeRef}>
             <button className="theme-toggle" title="theme" onClick={handleToggle}></button>
             {showOptions && (
-                <div className="theme-options" id="themeOptions">
+                <div className="theme-options">
                     <button className={theme === "orange" ? "active" : ""} onClick={() => handleThemeChange("orange")}>Orange</button>
                     <button className={theme === "blue" ? "active" : ""} onClick={() => handleThemeChange("blue")}>Blue</button>
                 </div>
