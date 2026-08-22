@@ -12,6 +12,7 @@ import {
 } from "react-icons/fa";
 import { useEffect, useRef, useState } from "react";
 import useClickOutside from "../../../../hooks/useClickOutside";
+import { useMusic } from "../../../../context/MusicPlayerContext";
 
 const VideoPlayer = () => {
     const [isPlaying, setIsPlaying] = useState(false);
@@ -25,9 +26,12 @@ const VideoPlayer = () => {
     const videoRef = useRef(null);
     const volumeRef = useRef(null);
 
+    const { pauseMusicForVideo, resumeMusicAfterVideo } = useMusic();
+
     const handlePlayPause = () => {
         const video = videoRef.current;
         if (video.paused) {
+            pauseMusicForVideo();
             video.play();
             setIsPlaying(true);
 
@@ -41,23 +45,21 @@ const VideoPlayer = () => {
         setIsPlaying(false);
         setProgress(0);
         setShowVolume(false);
+        resumeMusicAfterVideo();
     };
 
     const handleFullscreen = async () => {
-        const container = videoRef.current.parentElement;
+        const container = containerRef.current;
         if (!document.fullscreenElement) {
             await container.requestFullscreen();
-            setIsFullscreen(true);
         } else {
             await document.exitFullscreen();
-            setIsFullscreen(false);
         }
     };
 
     const handleCloseFullscreen = async () => {
         if (document.fullscreenElement) {
             await document.exitFullscreen();
-            setIsFullscreen(false);
         }
     };
 
@@ -120,6 +122,7 @@ const VideoPlayer = () => {
         video.currentTime = 0;
         video.play();
         setIsPlaying(true);
+        pauseMusicForVideo();
     };
 
     const handleProgressChange = (e) => {
@@ -157,7 +160,6 @@ const VideoPlayer = () => {
                 poster={cover}
                 onPlay={() => setIsPlaying(true)}
                 onPause={() => setIsPlaying(false)}
-                onEnded={() => setIsPlaying(false)}
                 onTimeUpdate={handleTimeUpdate}
                 onEnded={handleEnded}
             >

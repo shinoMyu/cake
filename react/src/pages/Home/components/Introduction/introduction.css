@@ -55,12 +55,12 @@ video {
 /* 播放、靜音、重播按鈕 */
 .video-controls button {
     background-color: white;
-    border: 0.5px solid rgba(0, 0, 0, 0.1); 
+    border: 0.5px solid rgba(0, 0, 0, 0.1);
     padding: 8px 10px;
     border-radius: 6px;
     cursor: pointer;
     font-size: 15px;
-    display: flex;  
+    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -82,6 +82,10 @@ video {
     position: absolute;
     bottom: 20px;
     left: 20px;
+}
+
+.playPauseBtn svg {
+    width: 15px;
 }
 
 .expandVideoBtn {
@@ -115,19 +119,20 @@ video {
 .video-container:fullscreen video {
     width: auto;
     height: 100%;
-    object-fit: contain; /* 保持比例並置中顯示 */
+    object-fit: contain;
+    /* 保持比例並置中顯示 */
 }
 
 .video-container:fullscreen .video-controls button {
+    width: 45px;
+    height: 45px;
     font-size: 20px;
     padding: 12px 14px;
     border-radius: 8px;
 }
 
-.video-container:fullscreen .video-controls
-.expandVideoBtn, 
-.video-container:fullscreen .video-controls
-.muteBtn {
+.video-container:fullscreen .video-controls .expandVideoBtn,
+.video-container:fullscreen .video-controls .muteBtn {
     position: absolute;
     bottom: 80px;
 }
@@ -137,9 +142,13 @@ video {
     bottom: 35px;
     left: 50%;
     transform: translateX(-50%);
-    width: 80%;   
+    width: 80%;
 }
 
+.video-container:fullscreen .volumeControl {
+    bottom: 95px;
+    right: 14px;
+}
 
 .closeFullscreenBtn {
     position: absolute;
@@ -148,8 +157,8 @@ video {
     z-index: 30;
 }
 
-.video-container:fullscreen .closeFullscreenBtn {
-    display: block;
+.closeFullscreenBtn svg {
+    width: 20px;
 }
 
 /* =======================
@@ -219,7 +228,7 @@ video {
     RWD
 ============= */
 
-@media (max-width: 1024px) {  
+@media (max-width: 1024px) {
     .video-container {
         margin: 0;
     }
@@ -228,11 +237,11 @@ video {
         font-size: 1.9rem;
     }
 
-    .intro-content p{
-      font-size: 1.3rem;
+    .intro-content p {
+        font-size: 1.3rem;
     }
 }
-  
+
 @media (max-width:767px) {
     .intro-container {
         flex-direction: column-reverse;
@@ -243,9 +252,9 @@ video {
     .intro-content h2 {
         font-size: 1.8rem;
     }
-    
+
     .intro-content p {
-      font-size: 1.3rem;
+        font-size: 1.3rem;
     }
 }
 
@@ -264,7 +273,7 @@ video {
         margin: 0;
     }
 
-    .intro-content p{
+    .intro-content p {
         font-size: 1.15rem;
         line-height: 1.5;
     }
