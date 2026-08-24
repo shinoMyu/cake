@@ -9,6 +9,20 @@ export const traditional = {
             "請慢慢欣賞這些細緻又美味的蛋糕！"
         ]
     },
+    products: {
+        sectionTitle: "蛋糕",
+        category: {
+            all: "全部",
+            roll: "蛋糕捲",
+            cupcake: "杯子蛋糕",
+            whole: "造型蛋糕",
+            others: "其他"
+        },
+        product: {
+            flavor: "口味",
+            size: "尺寸",
+        }
+    },
     about: {
         sectionTitle: "關於這個網站",
         paragraphs: [

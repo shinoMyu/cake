@@ -9,6 +9,21 @@ export const en = {
             "Take your time and enjoy the charm of these delightful creations!"
         ]
     },
+    products: {
+        sectionTitle: "Products",
+        category: {
+            all: "All",
+            roll: "Roll Cakes",
+            cupcake: "Cupcakes",
+            whole: "Whole Cakes",
+            others: "Lava Cakes"
+        },
+        product: {
+            flavor: "Flavor",
+            size: "Size",
+            style: "Style"
+        }
+    },
     about: {
         sectionTitle: "About This Site",
         paragraphs: [

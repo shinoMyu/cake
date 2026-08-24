@@ -9,6 +9,21 @@ export const jp = {
             "美味しくてかわいいケーキをぜひご覧ください！"
         ]
     },
+    products: {
+        sectionTitle: "ケーキ",
+        category: {
+            all: "すべて",
+            roll: "ロールケーキ",
+            cupcake: "カップケーキ",
+            whole: "ホールケーキ",
+            others: "その他"
+        },
+        product: {
+            flavor: "味",
+            size: "サイズ",
+            style: "スタイル"
+        }
+    },
     about: {
         sectionTitle: "このサイトについて",
         paragraphs: [
