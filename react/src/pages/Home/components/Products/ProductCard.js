@@ -1,12 +1,12 @@
 import { useLanguage } from "../../../../context/LanguageContext";
 import { locales } from "../../../../locales";
 
-const ProductCard = ({ cake }) => {
+const ProductCard = ({ cake, onImageClick }) => {
     const { language } = useLanguage();
     const text = locales[language];
     return(
         <div className={`product-item ${cake.category}`}>
-            <img className = "product-img" src={cake.image} alt={cake.name[language]} />
+            <img className = "product-img" src={cake.image} alt={cake.name[language]} onClick={onImageClick}/>
             <h3 className={language}>{cake.name[language]}</h3>
             {cake.flavor?.[language] && (
                 <p className={language}>

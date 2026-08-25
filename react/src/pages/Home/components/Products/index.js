@@ -5,6 +5,7 @@ import ProductCard from "./ProductCard";
 import CategoryFilter from "./CategoryFilter";
 import { cakeData } from "../../../../data/cakeData";
 import "./products.css"
+import Lightbox from "./Lightbox";
 
 const Products = () => {
     const { language } = useLanguage();
@@ -16,6 +17,8 @@ const Products = () => {
             ? cakeData
             : cakeData.filter(cake => cake.category === category);
 
+    const [selectedIndex, setSelectedIndex] = useState(null);
+
     return <section id="products">
         <div className="product-wrapper">
             <h2 className={`section-title ${language}`}>
@@ -23,16 +26,11 @@ const Products = () => {
             </h2>
             <CategoryFilter category={category} setCategory={setCategory}/>
             <div className="product-grid">
-                {filteredCakes.map(cake => (
-                    <ProductCard key={cake.id} cake={cake} />
+                {filteredCakes.map((cake, index) => (
+                    <ProductCard key={cake.id} cake={cake} onImageClick={() => setSelectedIndex(index)}/>
                 ))}
             </div>
-            <div id="lightbox" className="lightbox">
-                {/* <img id="lightbox-img" className="lightbox-img" src="" alt="Expanded Image" /> */}
-                <span className="close-btn">✕</span>
-                {/* <img src="image/left-arrow.png" className="arrow left" alt="Left" />
-                    <img src="image/right-arrow.png" className="arrow right" alt="Right" /> */}
-            </div>
+            <Lightbox cakes={filteredCakes} selectedIndex={selectedIndex} setSelectedIndex={setSelectedIndex}/>
         </div>
     </section>
 }

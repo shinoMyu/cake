@@ -116,7 +116,6 @@
 
 /* Lightbox 背景 */
 .lightbox {
-    display: none;
     position: fixed;
     z-index: 999;
     top: 0;
@@ -124,8 +123,9 @@
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.8);
-    justify-content: center;
+    display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 /* 放大圖片 */
