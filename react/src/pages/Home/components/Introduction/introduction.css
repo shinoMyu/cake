@@ -11,7 +11,7 @@
 .intro-container {
     display: flex;
     align-items: flex-start;
-    gap: 30px;
+    gap: 20px;
     margin: 15px 20px;
 }
 
@@ -30,8 +30,8 @@
 }
 
 .intro-content p {
-    font-size: 1.5rem;
-    line-height: 1.6;
+    font-size: 1.6rem;
+    line-height: 1.5;
     color: #4a3a2a;
 }
 

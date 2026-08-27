@@ -30,5 +30,10 @@ export const en = {
             "This site is a personal project to showcase various cake designs, focusing on warm tones, soft visuals, and handmade charm.",
             "It is not a commercial page but a visual gallery built with HTML, CSS, and JavaScript."
         ]
+    },
+    lockedMessage: {
+        before: "Please log in using the",
+        highlight: "top right",
+        after: "button to view the products."
     }
 };

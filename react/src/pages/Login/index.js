@@ -5,11 +5,12 @@ import "./login-register.css";
 import FormField from "./components/FormField";
 import { validateForm } from "./validation";
 import FeedbackMessage from "./components/FeedbackMessage";
+import { useAuth } from "../../context/AuthContext";
 
 
 const Login = () => {
     const [isRegister, setIsRegister] = useState(false);
-
+    const { login } = useAuth();
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -69,7 +70,7 @@ const Login = () => {
                 return;
             }
 
-            localStorage.setItem("isLoggedIn", "true");
+            login();
             setMessage("Login successful! Redirecting to homepage...");
             return;
         }

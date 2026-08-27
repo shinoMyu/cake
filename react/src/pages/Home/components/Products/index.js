@@ -6,10 +6,14 @@ import CategoryFilter from "./CategoryFilter";
 import { cakeData } from "../../../../data/cakeData";
 import "./products.css"
 import Lightbox from "./Lightbox";
+import { useAuth } from "../../../../context/AuthContext";
+import LockedSection from "../../../../components/LockedSection";
 
 const Products = () => {
     const { language } = useLanguage();
     const text = locales[language];
+
+    const { isLoggedIn } = useAuth();
 
     const [category, setCategory] = useState("all");
     const filteredCakes =
@@ -24,13 +28,16 @@ const Products = () => {
             <h2 className={`section-title ${language}`}>
                 {text.products.sectionTitle}
             </h2>
-            <CategoryFilter category={category} setCategory={setCategory}/>
-            <div className="product-grid">
-                {filteredCakes.map((cake, index) => (
-                    <ProductCard key={cake.id} cake={cake} onImageClick={() => setSelectedIndex(index)}/>
-                ))}
+            <div className={!isLoggedIn ? "blurred" : ""}>
+                <CategoryFilter category={category} setCategory={setCategory} />
+                <div className="product-grid">
+                    {filteredCakes.map((cake, index) => (
+                        <ProductCard key={cake.id} cake={cake} onImageClick={() => setSelectedIndex(index)} />
+                    ))}
+                </div>
+                <Lightbox cakes={filteredCakes} selectedIndex={selectedIndex} setSelectedIndex={setSelectedIndex} />
             </div>
-            <Lightbox cakes={filteredCakes} selectedIndex={selectedIndex} setSelectedIndex={setSelectedIndex}/>
+            {!isLoggedIn && <LockedSection />}
         </div>
     </section>
 }

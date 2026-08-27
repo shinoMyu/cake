@@ -80,7 +80,6 @@ section {
     text-align: center;
 }
 
-
 .product-wrapper {
     position: relative;
 }
@@ -103,6 +102,7 @@ section {
 
 .locked-section p {
     font-size: 1.6rem;
+    text-align: center;
 }
 
 .locked-section .highlight {

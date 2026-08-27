@@ -28,5 +28,10 @@ export const traditional = {
         paragraphs: [
             "本網站作為一個甜點作品展示平台，呈現各式蛋糕類型，設計上注重溫暖配色與柔和排版，希望營造出舒適的瀏覽體驗。"
         ]
+    },
+    lockedMessage: {
+        before: "請使用",
+        highlight: "右上角",
+        after: "按鈕登入以瀏覽蛋糕內容。 "
     }
 };
