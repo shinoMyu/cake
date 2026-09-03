@@ -1,0 +1,41 @@
+/* ====================
+    About Section
+==================== */
+
+#about {
+    margin: 15px auto;
+    padding: 20px 25px;
+}
+
+.about-content p {
+    font-size: 1.6rem;
+    line-height: 2;
+    color: #4a3a2a;
+    text-align: center;
+    margin: 15px;
+    padding: 10px;
+}
+
+
+/* =============
+    RWD
+============= */
+
+@media (max-width: 1024px) {
+    .about-content p {
+      font-size: 1.3rem;
+    }
+}
+  
+@media (max-width:767px) {
+    .about-content p {
+      font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-content p {
+        font-size: 1.15rem;
+        line-height: 1.5;
+    }
+}

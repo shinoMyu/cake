@@ -1,0 +1,189 @@
+@font-face {
+    font-family: "font-en";
+    src: url(../../assets/fonts/SourGummy-Light.woff2);
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "font-traditional";
+    src: url(../../assets/fonts/jf-openhuninn-21.woff2);
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "font-jp";
+    src: url(../../assets/fonts/KiwiMaru-Regular.woff2);
+    font-display: swap;
+}
+
+header *,
+.en,
+footer {
+    font-family: font-en, sans-serif;
+}
+
+.traditional {
+    font-family: font-traditional, sans-serif;
+}
+
+.jp {
+    font-family: font-jp, sans-serif;
+}
+
+html {
+    scroll-padding-top: 100px;
+}
+
+/* ===============
+    main
+=============== */
+
+main {
+    padding-top: 90px;
+}
+
+section {
+    background-color: var(--bg-subtle);
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: var(--section-title);
+    font-weight: 400;
+    text-align: center;
+    margin: 25px 0;
+}
+
+/* =======================
+    模糊效果（未登入）
+======================= */
+
+.blurred {
+    filter: blur(5px);
+    max-height: 500px;
+    overflow: hidden;
+    pointer-events: none;
+    user-select: none;
+}
+
+
+/* ==============================
+    Locked / Restricted Section 
+============================== */
+
+.centered-intro {
+    text-align: center;
+    line-height: 1.4;
+}
+
+.product-wrapper {
+    position: relative;
+}
+
+.locked-section {
+    filter: none;
+    width: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    background: var(--btn-bg-main);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(100, 150, 255, 0.3);
+    border: 2.5px dashed #4b6378;
+    color: #505d69;
+}
+
+.locked-section p {
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+.locked-section .highlight {
+    font-weight: bold;
+    color: #d9534f;
+    background-color: #fff3cd;
+    padding: 0 4px;
+    border-radius: 4px;
+}
+
+.auth.highlight {
+    animation: pulse 1.2s ease-in-out infinite;
+}
+
+/* =============
+    RWD
+============= */
+
+@media (max-width: 1024px) {  
+    .section-title {
+      font-size: 2.2rem;
+    }
+
+    .locked-section {
+        font-size: 1.4rem;
+    }
+
+}
+  
+@media (max-width:767px) {
+    .lang-options {
+        right: auto;
+        left: 0;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .locked-section {
+        max-width: 350px;
+    }
+
+    .locked-section p {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .blurred {
+        max-height: 400px;
+    }
+
+    .locked-section {
+        max-width: 300px;
+    }
+
+    .locked-section p {
+        font-size: 1.1rem;
+    }    
+}
+
+/* ===========================
+    Animaitons - UI Effects
+=========================== */
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
