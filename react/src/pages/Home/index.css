@@ -18,18 +18,15 @@
 
 header *,
 .en,
-.btn-en,
 footer {
     font-family: font-en, sans-serif;
 }
 
-.traditional,
-.btn-traditional {
+.traditional {
     font-family: font-traditional, sans-serif;
 }
 
-.jp,
-.btn-jp {
+.jp {
     font-family: font-jp, sans-serif;
 }
 
@@ -78,6 +75,7 @@ section {
 
 .centered-intro {
     text-align: center;
+    line-height: 1.4;
 }
 
 .product-wrapper {

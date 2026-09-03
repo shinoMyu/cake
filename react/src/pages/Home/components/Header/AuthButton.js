@@ -8,7 +8,6 @@ const AuthButton = () => {
     const navigate = useNavigate();
     const { isLoggedIn, logout, highlightAuth, setHighlightAuth } = useAuth();
     const [showText, setShowText] = useState(false);
-    const [message, setMessage] = useState("");
     const authRef = useRef(null);
 
     const handleSignOut = () => {
