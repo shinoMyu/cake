@@ -149,7 +149,7 @@ const Login = () => {
 
                 </form>
 
-                <p className="toggle-link">
+                <div className="toggle-link">
                     {(!isRegister) && (
                         <span className="toggle-text">New to CakeSite?</span>
                     )}
@@ -159,7 +159,7 @@ const Login = () => {
                     <div className="back-home">
                         <Link to="/">Back to Home</Link>
                     </div>
-                </p>
+                </div>
 
                 <FeedbackMessage message={message} onClose={closeMessage}/>
             </div>

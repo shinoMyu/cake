@@ -1,10 +1,15 @@
+body {
+    margin: 0;
+}
+
 .login-page {
     font-family: font-en, sans-serif;
     background: var(--bg-main);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    box-sizing: border-box;
 }
 
 .login-container {
@@ -130,37 +135,36 @@
 
 @media (max-width: 500px) {
     .login-container {
-        width: 75%;
         padding: 30px;
     }
 
-    h2 {
+    .login-container h2 {
         font-size: 28px;
     }
 
-    label {
+    .login-container label {
         font-size: 18px;
     }
 
     input[type="text"],
     input[type="email"],
-    input[type="password"] {
+    .login-container input[type="password"] {
         font-size: 0.95em;
     }
 
-    button {
+    .login-container button {
         font-size: 1.25em;
     }
 
-    .toggle-link {
+    .login-container .toggle-link {
         font-size: 1.25em;
     }
 
-    .message-box p {
+    .login-container .message-box p {
         font-size: 1.2rem;
     }
 
-    .message-box button {
+    .login-container .message-box button {
         width: 70%;
         font-size: 1rem;
     }
