@@ -14,7 +14,7 @@ root.render(
       <LanguageProvider>
         <AuthProvider>
           <MusicProvider>
-            <BrowserRouter>
+            <BrowserRouter basename='/cake'>
               <App />
             </BrowserRouter>
           </MusicProvider>
