@@ -89,12 +89,17 @@ ul {
     padding: 0;
 }
 
-a {
-    text-decoration: none;
+.nav-section-button {
+    border: none;
+    padding: 0;
+    background: none;
     color: inherit;
+    font: inherit;
+    font-weight: inherit;
+    cursor: pointer;
 }
 
-a:hover {
+.nav-section-button:hover {
     color: var(--text-strong);
 }
 

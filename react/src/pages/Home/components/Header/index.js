@@ -4,15 +4,16 @@ import ThemeSwitcher from "./ThemeSwitcher";
 import Navigation from "./Navigation";
 import AuthButton from "./AuthButton";
 import MusicPlayer from "./MusicPlayer";
+import { Link } from "react-router-dom";
 
 const Header = () => {
     return <header>
         <div className="header-container">
             <div className="left">
                 <div className="header-logo">
-                    <a href="/">
+                    <Link to="/">
                         <img src={logo} alt="Logo" />
-                    </a>
+                    </Link>
                 </div>
                 <ThemeSwitcher />
             </div>

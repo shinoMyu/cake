@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import App from './App';
 import { ThemeProvider } from './context/ThemeContext';
 import { LanguageProvider } from './context/LanguageContext';
@@ -14,9 +14,9 @@ root.render(
       <LanguageProvider>
         <AuthProvider>
           <MusicProvider>
-            <BrowserRouter basename='/cake'>
+            <HashRouter>
               <App />
-            </BrowserRouter>
+            </HashRouter>
           </MusicProvider>
         </AuthProvider>
       </LanguageProvider>
