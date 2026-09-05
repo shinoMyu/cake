@@ -4,7 +4,6 @@ const LanguageContext = createContext();
 
 const LANG_KEY = "selectedLang";
 const DEFAULT_LANG = "en";
-const LANGS = ['en', 'traditional', 'jp'];
 
 export const LanguageProvider = ({ children }) => {
     const [language, setLanguage] = useState(() => {

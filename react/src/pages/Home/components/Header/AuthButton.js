@@ -6,7 +6,7 @@ import { useAuth } from "../../../../context/AuthContext";
 
 const AuthButton = () => {
     const navigate = useNavigate();
-    const { isLoggedIn, logout, highlightAuth, setHighlightAuth } = useAuth();
+    const { isLoggedIn, logout, highlightAuth } = useAuth();
     const [showText, setShowText] = useState(false);
     const authRef = useRef(null);
 

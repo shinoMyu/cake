@@ -15,7 +15,7 @@ const Lightbox = ({ cakes, selectedIndex, setSelectedIndex }) => {
         return () => {
             document.removeEventListener("keydown", handleKeyDown);
         };
-    }, []);
+    }, [setSelectedIndex]);
     
     if (selectedIndex === null) return null;
 
